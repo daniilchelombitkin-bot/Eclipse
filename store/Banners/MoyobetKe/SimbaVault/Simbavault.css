@@ -1,0 +1,36 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.banner-wrapper-simba-vault {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1896 / 483; 
+    overflow: hidden;
+}
+
+.banner-bg-simba-vault {
+    width: 100%;
+    height: 100;
+    object-fit: cover;  
+    display: block;
+}
+
+.banner-title-simba-vault {
+    position: absolute;
+    width: 36%;
+    left: 5%;
+    top: 26.5%;
+    pointer-events: none;
+
+    animation: pulse 1.8s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.06); }
+    100% { transform: scale(1); }
+}

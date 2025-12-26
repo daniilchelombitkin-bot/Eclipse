@@ -1,0 +1,36 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.banner-wrapper-cashback-collection {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1896 / 483; 
+    overflow: hidden;
+}
+
+.banner-bg-cashback-collection {
+    width: 100%;
+    height: 100;
+    object-fit: cover;  
+    display: block;
+}
+
+.banner-title-cashback-collection {
+    position: absolute;
+    width: 34%;
+    left: 20.5%;
+    top: 10%;
+    pointer-events: none;
+
+    animation: pulse 1.8s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.06); }
+    100% { transform: scale(1); }
+}

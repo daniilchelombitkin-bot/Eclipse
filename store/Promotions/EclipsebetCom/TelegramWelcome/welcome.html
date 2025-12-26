@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome Bonus | EclipseBet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="welcome.css" />
+</head>
+<body>
+
+<div class="promo-container">
+
+  <!-- WELCOME BONUS HEADER -->
+  <section class="promo-section">
+    <h1 class="promo-title promo-title-glow">
+      <span class="icon icon-pulse">🎁</span>
+      Welcome Bonus
+    </h1>
+
+    <div class="info-box">
+      <p class="info-title">How to get the bonus:</p>
+      <ol class="promo-steps">
+        <li>Subscribe to <a href="https://t.me/eclipsebet_bot" class="link-gold">Telegram Bot</a> and link your account</li>
+        <li>In <a href="https://t.me/eclipsebet_bot" class="link-gold">Telegram Bot</a>, tap "All Bonuses" → "Welcome Bonus" and follow the instructions</li>
+      </ol>
+    </div>
+
+    <div class="info-box">
+      <p class="info-title">Bonus rules:</p>
+      <ul class="bonus-list">
+        <li>Available only for verified users</li>
+        <li>Bonus amount: 300 TRY / 7$</li>
+        <li>Wagering requirement: x60</li>
+        <li>Maximum withdrawal: 500 TRY / 15$</li>
+        <li>Valid only for slot games with Eclipse Live provider</li>
+        <li>Unavailable providers: AMUSNET, EGT, PlayTech, Games Global, Spinomenal, Betsoft, Barbara Bang</li>
+        <li>Bonus validity: 14 days from activation</li>
+        <li>After completing wagering, click "Claim" to convert to real balance</li>
+        <li class="withdrawal-conditions">
+          Withdrawal conditions:
+          <ul class="nested-list">
+            <li>– Increase real balance to 5000 TRY / 150$</li>
+            <li>– Contact support to freeze balance at 500 TRY / 15$</li>
+            <li>– After deduction, winnings become withdrawable</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SPOILER SECTION -->
+    <div class="spoiler-wrapper">
+      <button class="modal-trigger modal-trigger-wide" data-modal="modal1">
+        📜 PROMOTION TERMS & CONDITIONS
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ACTION BUTTONS -->
+  <div class="buttons-wrapper">
+    <button class="btn btn-verification" onclick="window.parent.location='https://www.eclipsebet.online/casino/jackpot?account=profile&page=verify-account&profile=open';">
+      VERIFICATION
+    </button>
+
+    <button class="btn btn-claim" onclick="window.parent.location='https://t.me/eclipsebet_bot';">
+      CLAIM THE BONUS
+    </button>
+  </div>
+
+</div>
+
+<!-- MODAL - TERMS & CONDITIONS -->
+<div class="modal-overlay" id="modal1">
+  <div class="modal-content">
+    <button class="modal-close" data-close="modal1">×</button>
+    <h3 class="modal-title">Promotion Terms & Conditions</h3>
+
+    <div class="modal-body">
+      <p>- Multiple accounts violate promotion rules and will be blocked without refund.</p>
+
+      <p>- EclipseBet may change, suspend or terminate the promotion at any time with notification.</p>
+
+      <p>- Any winnings or bonuses credited due to technical or software errors may be cancelled.</p>
+
+      <p>- Maximum withdrawal limits may be applied to prevent abuse.</p>
+
+      <p>- Promotional balances may be reviewed manually or automatically.</p>
+
+      <p>- Maximum withdrawal from promotional winnings is 100,000 TRY / 2,500$.</p>
+
+      <p>- Unusual balance increases may be reviewed and limited.</p>
+
+      <p>- Participation confirms acceptance of these Terms & Conditions.</p>
+    </div>
+  </div>
+</div>
+
+<script src="welcome.js"></script>
+</body>
+</html>
