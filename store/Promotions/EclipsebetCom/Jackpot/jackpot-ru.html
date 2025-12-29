@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Джекпот | EclipseBet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="jackpot.css" />
+</head>
+<body>
+
+<div class="promo-container">
+
+  <section class="promo-section">
+
+    <!-- PRIZE SHOWCASE -->
+    <div class="prize-showcase">
+      <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+      <div class="prize-label">ГАРАНТИРОВАННЫЙ ПРИЗ ДЖЕКПОТА</div>
+      <div class="prize-amount">
+        <span class="currency">$</span>100.000
+      </div>
+      <div class="prize-subtitle">Делится поровну между всеми, кто сделал 15/15 правильных прогнозов</div>
+    </div>
+
+    <!-- 1. О Джекпоте -->
+    <div class="info-box">
+      <p class="info-title"><strong>1. О Джекпоте</strong></p>
+      <ul class="bonus-list">
+        <li>Предскажите исходы <strong>15 заранее выбранных</strong> футбольных матчей.</li>
+        <li>Джекпот назначается в соответствии с расписанием провайдера.</li>
+        <li>Минимальная ставка: <strong>$10</strong> за комбинацию. Нет ограничений по количеству ставок для одного клиента.</li>
+      </ul>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons-wrapper">
+      <button class="btn btn-play" onclick="window.parent.location='https://www.eclipsebet.online/int/casino/jackpot/?target=_self&showTo=1&src=https%3A%2F%2Fjackpot.eclipse.bet%2Fauth%3Fhash%3D%7Bjwe%7D';">
+        Играть в Джекпот
+      </button>
+      <button class="btn btn-view" onclick="window.parent.location='https://jackpot.eclipse.bet/?utm_source=check_jackpot';">
+        Просмотр Джекпота
+      </button>
+    </div>
+
+    <!-- 2. Приз Джекпота и Бонус -->
+    <div class="info-box">
+      <p class="info-title"><strong>2. Приз Джекпота и Бонус</strong></p>
+      <ul class="bonus-list">
+        <li>Гарантированный приз Джекпота: <strong>$100.000</strong>, делится поровну между всеми, кто сделал 15/15 правильных прогнозов.</li>
+        <li>Если победителя Джекпота нет: бонус может быть присужден за наибольшее количество правильных прогнозов (минимум 13/15).</li>
+        <li class="bonus-amounts-title"><u>Суммы джекпот-бонусов:</u>
+          <ul class="nested-list bonus-nested">
+            <li class="bonus-item">
+              <span class="bonus-value">$3.000</span>
+              <span class="bonus-desc">— за 14 правильных из 15 матчей.</span>
+            </li>
+            <li class="bonus-item">
+              <span class="bonus-value">$1.000</span>
+              <span class="bonus-desc">— за 13 правильных из 15 матчей.</span>
+            </li>
+          </ul>
+        </li>
+        <li>Бонус/приз делится, если победителей несколько.</li>
+        <li>Игроки могут выбрать 2 исхода или все 3 исхода на матч.</li>
+        <li>Максимальное количество Двойных/Тройных исходов на одну ставку: 6.</li>
+      </ul>
+    </div>
+
+    <!-- 3. Правила и Отмена матчей -->
+    <div class="info-box">
+      <p class="info-title"><strong>3. Правила и Отмена матчей</strong></p>
+      <ul class="bonus-list">
+        <li>Прием ставок закрывается с началом первого матча. Отмена ставок после их размещения невозможна.</li>
+        <li>Перенесенные/отмененные матчи влияют на приз в соответствии с общими условиями.</li>
+        <li class="adjustment-rules-title"><u>Правила корректировки:</u>
+          <ul class="nested-list adjustment-nested">
+            <li class="adjustment-item">
+              <span class="adjustment-condition">14 правильных + 1 перенесенный матч</span>
+              <span class="adjustment-arrow">→</span>
+              <span class="adjustment-prize">$30.000.</span>
+            </li>
+            <li class="adjustment-item">
+              <span class="adjustment-condition">13 правильных + 2 перенесенных матча</span>
+              <span class="adjustment-arrow">→</span>
+              <span class="adjustment-prize">$10.000.</span>
+            </li>
+            <li class="adjustment-item">
+              <span class="adjustment-condition">12 правильных + 3 перенесенных матча</span>
+              <span class="adjustment-arrow">→</span>
+              <span class="adjustment-prize">$3.000.</span>
+            </li>
+          </ul>
+        </li>
+        <li>Более 3 перенесенных/отмененных матчей → Джекпот отменяется, ставки возвращаются.</li>
+        <li>Результаты учитываются только за 90 минут + добавленное время (без дополнительного времени/пенальти).</li>
+      </ul>
+    </div>
+
+    <!-- 4. Общие условия -->
+    <div class="info-box">
+      <p class="info-title"><strong>4. Общие условия</strong></p>
+      <ul class="bonus-list">
+        <li>Джекпот регулируется <a href="https://www.eclipsebet.online/help/60323" class="link-gold" target="_parent">Общими условиями Eclipsebet</a>.</li>
+        <li>Eclipsebet может изменить или отменить Джекпот в любое время.</li>
+        <li>Споры разрешаются в соответствии с <a href="https://www.eclipsebet.online/help/60323" class="link-gold" target="_parent">Общими условиями Eclipsebet</a>.</li>
+      </ul>
+    </div>
+
+    <!-- 5. Проверка победителей -->
+    <div class="info-box">
+      <p class="info-title"><strong>5. Проверка победителей</strong></p>
+      <ul class="bonus-list">
+        <li>Перед выплатой выигрыша победители должны пройти полную верификацию учетной записи на сайте eclipsebet.com.</li>
+      </ul>
+    </div>
+
+    <!-- 6. Безопасность и Участие -->
+    <div class="info-box">
+      <p class="info-title"><strong>6. Безопасность и Участие</strong></p>
+      <ul class="bonus-list">
+        <li>Для получения выплат допустим только один зарегистрированный аккаунт на клиента.</li>
+        <li>Передача аккаунтов или ставки от имени других лиц запрещены и могут привести к блокировке/аннулированию ставок.</li>
+        <li>Эти условия регулируются <a href="https://www.eclipsebet.online/help/60323" class="link-gold" target="_parent">Общими условиями</a>.</li>
+      </ul>
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="buttons-wrapper">
+      <button class="btn btn-play" onclick="window.parent.location='http://www.eclipsebet.online/int/casino/jackpot/?target=_self&showTo=1&src=https%3A%2F%2Fjackpot.eclipse.bet%2Fauth%3Fhash%3D%7Bjwe%7D';">
+        Играть в Джекпот
+      </button>
+      <button class="btn btn-view" onclick="window.parent.location='https://jackpot.eclipse.bet/?utm_source=check_jackpot';">
+        Просмотр Джекпота
+      </button>
+    </div>
+
+  </section>
+
+</div>
+
+<script src="jackpot.js"></script>
+<script src="particles.js"></script>
+</body>
+</html>

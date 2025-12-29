@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jackpot | EclipseBet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="jackpot.css" />
+</head>
+<body>
+
+<div class="promo-container">
+
+  <section class="promo-section">
+
+    <!-- PRIZE SHOWCASE -->
+    <div class="prize-showcase">
+      <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+      <div class="prize-label">GARANTİLİ JACKPOT ÖDÜLÜ</div>
+      <div class="prize-amount">
+        <span class="currency">₺</span>4.000.000
+      </div>
+      <div class="prize-subtitle">15/15 doğru tahminde bulunan oyuncular arasında eşit olarak paylaşılır</div>
+    </div>
+
+    <!-- 1. Jackpot Hakkında -->
+    <div class="info-box">
+      <p class="info-title"><strong>1. Jackpot Hakkında</strong></p>
+      <ul class="bonus-list">
+        <li>Toplam <strong>15 önceden belirlenmiş</strong> futbol karşılaşmasının sonucunu doğru tahmin edin.</li>
+        <li>Jackpot, sağlayıcının belirlediği programa göre oynanır.</li>
+        <li>Minimum kupon bedeli: <strong>₺400</strong> (kombinasyon başına). Bir oyuncu dilediği kadar kupon oluşturabilir.</li>
+      </ul>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons-wrapper">
+      <button class="btn btn-play" onclick="window.parent.location='https://www.eclipsebet.online/int/casino/jackpot/?target=_self&showTo=1&src=https%3A%2F%2Fjackpot.eclipse.bet%2Fauth%3Fhash%3D%7Bjwe%7D';">
+        Jackpot Oyna
+      </button>
+      <button class="btn btn-view" onclick="window.parent.location='https://jackpot.eclipse.bet/?utm_source=check_jackpot';">
+        Jackpot Görüntüle
+      </button>
+    </div>
+
+    <!-- 2. Jackpot Ödülü ve Bonusu -->
+    <div class="info-box">
+      <p class="info-title"><strong>2. Jackpot Ödülü ve Bonusu</strong></p>
+      <ul class="bonus-list">
+        <li>Garantili Jackpot ödülü: <strong>₺4.000.000</strong> — 15/15 doğru tahminde bulunan oyuncular arasında eşit olarak paylaşılır.</li>
+        <li>Jackpot kazananı çıkmazsa, en fazla doğru tahminde bulunan oyuncular (en az 13/15).</li>
+        <li class="bonus-amounts-title"><u>Jackpot Bonus tutarları:</u>
+          <ul class="nested-list bonus-nested">
+            <li class="bonus-item">
+              <span class="bonus-value">₺120.000</span>
+              <span class="bonus-desc">— 15 maçtan 14'ünü doğru tahmin edenler için.</span>
+            </li>
+            <li class="bonus-item">
+              <span class="bonus-value">₺40.000</span>
+              <span class="bonus-desc">— 15 maçtan 13'ünü doğru tahmin edenler için.</span>
+            </li>
+          </ul>
+        </li>
+        <li>Birden fazla kazanan olması durumunda ödül eşit olarak paylaştırılır.</li>
+        <li>Oyuncular, her maç için 2 (çifte şans) veya 3 (üçlü tahmin) seçeneği yapabilir.</li>
+        <li>Bir kuponda izin verilen maksimum çifte/üçlü tahmin sayısı: 6.</li>
+      </ul>
+    </div>
+
+    <!-- 3. Kurallar ve Maç İptalleri -->
+    <div class="info-box">
+      <p class="info-title"><strong>3. Kurallar ve Maç İptalleri</strong></p>
+      <ul class="bonus-list">
+        <li>Bahisler, ilk karşılaşmanın başlamasıyla birlikte kapanır. Kupon oynandıktan sonra iptal edilemez.</li>
+        <li>Ertelenen veya iptal edilen maçlar, genel hüküm ve koşullara göre değerlendirilir.</li>
+        <li class="adjustment-rules-title"><u>Ödül düzenlemeleri:</u>
+          <ul class="nested-list adjustment-nested">
+            <li class="adjustment-item">
+              <span class="adjustment-condition">14 doğru + 1 ertelenen maç</span>
+              <span class="adjustment-arrow">→</span>
+              <span class="adjustment-prize">₺1.200.000.</span>
+            </li>
+            <li class="adjustment-item">
+              <span class="adjustment-condition">13 doğru + 2 ertelenen maç</span>
+              <span class="adjustment-arrow">→</span>
+              <span class="adjustment-prize">₺400.000.</span>
+            </li>
+            <li class="adjustment-item">
+              <span class="adjustment-condition">12 doğru + 3 ertelenen maç</span>
+              <span class="adjustment-arrow">→</span>
+              <span class="adjustment-prize">₺120.000.</span>
+            </li>
+          </ul>
+        </li>
+        <li>3'ten fazla maç ertelenir veya iptal edilirse → Jackpot geçersiz sayılır, kupon bedelleri iade edilir.</li>
+        <li>Sonuçlar yalnızca 90 dakika + uzatma süresi dikkate alınır (uzatma devresi veya penaltı atışları dahil değildir).</li>
+      </ul>
+    </div>
+
+    <!-- 4. Genel Hüküm ve Koşullar -->
+    <div class="info-box">
+      <p class="info-title"><strong>4. Genel Hüküm ve Koşullar</strong></p>
+      <ul class="bonus-list">
+        <li>Jackpot oyunu, <a href="https://www.eclipsebet.online/help/60323" class="link-gold" target="_parent">Eclipsebet Genel Hüküm ve Koşulları'na</a> tabidir.</li>
+        <li>Eclipsebet, Jackpot'u dilediği zaman değiştirme veya iptal etme hakkını saklı tutar.</li>
+        <li>Olası uyuşmazlıklar, <a href="https://www.eclipsebet.online/help/60323" class="link-gold" target="_parent">Eclipsebet Genel Hüküm ve Koşulları</a> çerçevesinde çözülür.</li>
+      </ul>
+    </div>
+
+    <!-- 5. Kazanan Doğrulaması -->
+    <div class="info-box">
+      <p class="info-title"><strong>5. Kazanan Doğrulaması</strong></p>
+      <ul class="bonus-list">
+        <li>Kazanan oyuncular, ödül ödemesinden önce eclipsebet.com adresinde hesap doğrulama sürecini tamamlamalıdır.</li>
+      </ul>
+    </div>
+
+    <!-- 6. Güvenlik ve Katılım Şartları -->
+    <div class="info-box">
+      <p class="info-title"><strong>6. Güvenlik ve Katılım Şartları</strong></p>
+      <ul class="bonus-list">
+        <li>Her oyuncu yalnızca tek bir aktif hesapla Jackpot oyununa katılabilir.</li>
+        <li>Hesap devri veya başka biri adına bahis yapmak yasaktır; bu tür durumlar hesap kapatma veya bahislerin geçersiz sayılmasıyla sonuçlanabilir.</li>
+        <li>Bu kampanya, genel <a href="https://www.eclipsebet.online/help/60323" class="link-gold" target="_parent">Şartlar ve Kurallar</a> kapsamında yürütülmektedir.</li>
+      </ul>
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="buttons-wrapper">
+      <button class="btn btn-play" onclick="window.parent.location='http://www.eclipsebet.online/int/casino/jackpot/?target=_self&showTo=1&src=https%3A%2F%2Fjackpot.eclipse.bet%2Fauth%3Fhash%3D%7Bjwe%7D';">
+        Jackpot Oyna
+      </button>
+      <button class="btn btn-view" onclick="window.parent.location='https://jackpot.eclipse.bet/?utm_source=check_jackpot';">
+        Jackpot Görüntüle
+      </button>
+    </div>
+
+  </section>
+
+</div>
+
+<script src="jackpot.js"></script>
+<script src="particles.js"></script>
+</body>
+</html>
