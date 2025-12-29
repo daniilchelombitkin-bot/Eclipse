@@ -20,34 +20,63 @@ body {
 }
 
 .card {
-    background: #1a1a1a;
+    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
     border-radius: 12px;
     padding: 50px 40px;
     text-align: center;
     box-shadow:
         0 4px 20px rgba(0, 0, 0, 0.5),
-        0 0 40px rgba(212, 175, 55, 0.15),
-        0 0 80px rgba(212, 175, 55, 0.1);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+        0 0 40px rgba(255, 215, 0, 0.15),
+        0 0 80px rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 222, 153, 0.3);
     position: relative;
     overflow: hidden;
     animation: cardGlow 4s ease-in-out infinite;
+}
+
+/* Золотое свечение в центре */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.18) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Декоративные золотые всполохи */
+.card::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -60px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(ellipse at top left, rgba(255, 215, 0, 0.2) 0%, transparent 60%);
+    filter: blur(60px);
+    z-index: 1;
+    pointer-events: none;
 }
 
 @keyframes cardGlow {
     0%, 100% {
         box-shadow:
             0 4px 20px rgba(0, 0, 0, 0.5),
-            0 0 40px rgba(212, 175, 55, 0.15),
-            0 0 80px rgba(212, 175, 55, 0.1);
-        border-color: rgba(212, 175, 55, 0.3);
+            0 0 40px rgba(255, 215, 0, 0.15),
+            0 0 80px rgba(255, 215, 0, 0.1);
+        border-color: rgba(255, 222, 153, 0.3);
     }
     50% {
         box-shadow:
             0 4px 20px rgba(0, 0, 0, 0.5),
-            0 0 50px rgba(212, 175, 55, 0.25),
-            0 0 100px rgba(212, 175, 55, 0.15);
-        border-color: rgba(212, 175, 55, 0.4);
+            0 0 50px rgba(255, 215, 0, 0.25),
+            0 0 100px rgba(255, 215, 0, 0.15);
+        border-color: rgba(255, 222, 153, 0.4);
     }
 }
 
@@ -109,8 +138,8 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.2));
 }
 
 .message {
@@ -128,7 +157,7 @@ body {
 .highlight {
     font-size: 30px !important;
     font-weight: 700;
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #d4af37 100%);
+    background: linear-gradient(90deg, #FFDE99 0%, #B48852 90.41%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -161,12 +190,12 @@ body {
 .team {
     font-size: 22px !important;
     font-weight: 700;
-    background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+    background: linear-gradient(90deg, #FFDE99 0%, #B48852 90.41%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-top: 5px !important;
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
 }
 
 /* Responsive */
