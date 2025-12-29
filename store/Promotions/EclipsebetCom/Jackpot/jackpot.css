@@ -287,8 +287,8 @@ html, body {
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
   padding: 0;
   background: transparent;
 }
@@ -820,6 +820,7 @@ body.modal-open {
 
   .buttons-wrapper {
     margin-top: 20px;
+    margin-bottom: 20px;
     gap: 12px;
   }
 
@@ -935,7 +936,8 @@ body.modal-open {
   .buttons-wrapper {
     flex-direction: column;
     gap: 8px;
-    margin-top: 0;
+    margin-top: 12px;
+    margin-bottom: 12px;
   }
 
   .btn {
