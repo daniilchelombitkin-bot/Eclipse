@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0d0d0d;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(212, 175, 55, 0.15),
+        0 0 80px rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: cardGlow 4s ease-in-out infinite;
+}
+
+@keyframes cardGlow {
+    0%, 100% {
+        box-shadow:
+            0 4px 20px rgba(0, 0, 0, 0.5),
+            0 0 40px rgba(212, 175, 55, 0.15),
+            0 0 80px rgba(212, 175, 55, 0.1);
+        border-color: rgba(212, 175, 55, 0.3);
+    }
+    50% {
+        box-shadow:
+            0 4px 20px rgba(0, 0, 0, 0.5),
+            0 0 50px rgba(212, 175, 55, 0.25),
+            0 0 100px rgba(212, 175, 55, 0.15);
+        border-color: rgba(212, 175, 55, 0.4);
+    }
+}
+
+/* Fireworks Container */
+.fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    overflow: hidden;
+}
+
+/* Content - Перед снегом */
+.content {
+    color: #e0e0e0;
+    position: relative;
+    z-index: 9;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+/* Canvas для снега - ПЕРЕД текстом, но ЗА подарками */
+#snowBack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 7;
+}
+
+/* Gift Image - ПОВЕРХ всего */
+.gift-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 350px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.gift-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom right;
+}
+
+.greeting {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
+}
+
+.message {
+    margin: 20px 0;
+}
+
+.message p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #c5c5c5;
+    text-shadow: 0 0 15px rgba(197, 197, 197, 0.1);
+}
+
+.highlight {
+    font-size: 30px !important;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 15px 0 !important;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+    animation: goldGlow 3s ease-in-out infinite;
+}
+
+@keyframes goldGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+    }
+    50% {
+        filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7));
+    }
+}
+
+/* Signature */
+.signature {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.signature p {
+    font-size: 16px;
+    color: #c0c0c0;
+    margin: 6px 0;
+}
+
+.team {
+    font-size: 22px !important;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 5px !important;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card {
+        padding: 40px 30px;
+    }
+
+    .gift-image {
+        width: 200px;
+        height: 250px;
+    }
+
+    .greeting {
+        font-size: 22px;
+    }
+
+    .message p {
+        font-size: 16px;
+    }
+
+    .highlight {
+        font-size: 26px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 35px 25px 120px 25px;
+    }
+
+    .gift-image {
+        width: 150px;
+        height: 200px;
+    }
+
+    .greeting {
+        font-size: 20px;
+    }
+
+    .message p {
+        font-size: 15px;
+    }
+
+    .highlight {
+        font-size: 23px !important;
+    }
+
+    .team {
+        font-size: 20px !important;
+    }
+}
