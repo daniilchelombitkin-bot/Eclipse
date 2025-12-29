@@ -8,9 +8,13 @@ function initBackSnow() {
   const w = canvasBack.width;
   const h = canvasBack.height;
 
+  // На мобилках снег чуть крупнее
+  const isMobile = w < 768;
+  const sizeMultiplier = isMobile ? 1.5 : 1;
+
   backFlakes = [];
   for (let i = 0; i < 80; i++) {
-    const sizePercent = 0.0005 + Math.random() * 0.002;
+    const sizePercent = (0.0005 + Math.random() * 0.002) * sizeMultiplier;
 
     backFlakes.push({
       x: Math.random() * w,
