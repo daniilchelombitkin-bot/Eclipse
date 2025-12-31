@@ -627,42 +627,42 @@ body.modal-open {
 /* Desktop improvements */
 @media (min-width: 601px) {
   .promo-container {
-    padding: 24px 20px;
+    padding: 20px 16px;
   }
 
   .promo-title {
-    font-size: 28px;
-    margin-bottom: 24px;
+    font-size: 24px;
+    margin-bottom: 20px;
   }
 
   .info-box {
-    padding: 20px 24px;
-    margin-bottom: 20px;
+    padding: 16px;
+    margin-bottom: 16px;
   }
 
   .info-title {
-    font-size: 15px;
-    margin-bottom: 14px;
+    font-size: 14px;
+    margin-bottom: 12px;
   }
 
   .buttons-wrapper {
-    margin-top: 20px;
-    gap: 12px;
+    margin-top: 0;
+    gap: 8px;
   }
 
   .btn {
-    padding: 14px 32px;
-    font-size: 15px;
+    padding: 12px 22px;
+    font-size: 14px;
   }
 
   .spoiler-wrapper {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 18px;
+    margin-bottom: 18px;
   }
 
   .modal-trigger {
-    padding: 14px 24px;
-    font-size: 15px;
+    padding: 12px 22px;
+    font-size: 14px;
   }
 }
 
