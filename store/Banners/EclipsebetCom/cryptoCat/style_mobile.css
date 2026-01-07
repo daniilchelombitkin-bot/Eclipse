@@ -147,6 +147,7 @@ html {
                badgesBreathe 4s ease-in-out 2s infinite;
     will-change: transform, opacity;
     backface-visibility: hidden;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 /* Выезд снизу */
