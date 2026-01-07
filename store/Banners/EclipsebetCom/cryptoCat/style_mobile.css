@@ -158,7 +158,8 @@ html {
     filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.5));
     opacity: 0;
     transform: translateX(-50%) translateY(100%);
-    animation: slideInFromBottom 1s ease-out 0.2s forwards;
+    animation: slideInFromBottom 1s ease-out 0.2s forwards,
+               badgesBreathe 4s ease-in-out 1.5s infinite;
     will-change: transform, opacity;
     backface-visibility: hidden;
 }
