@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>15% Crypto Bonus | EclipseBet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="crypto-bonus.css" />
+</head>
+<body>
+
+<div class="promo-container">
+
+  <section class="promo-section">
+
+    <!-- PRIZE SHOWCASE -->
+    <div class="prize-showcase">
+      <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+      <div class="prize-label">EXCLUSIVE CRYPTO BONUS</div>
+      <div class="prize-amount">
+        <span class="currency">15%</span>
+      </div>
+      <div class="prize-subtitle">Get up to $1500 bonus on your crypto deposit</div>
+    </div>
+
+    <!-- How to get the Bonus -->
+    <div class="info-box">
+      <p class="info-title"><strong>How to get the Bonus:</strong></p>
+      <ol class="bonus-list">
+        <li>Make a deposit in cryptocurrency by any available method</li>
+        <li>Click "Bonuses" tab - "<a href="https://www.eclipsebet.online/#/?profile=open&account=bonuses&page=casino" class="link-gold" target="_parent">Casino Bonus</a>"</li>
+        <li>Choose "15% deposit Bonus via Crypto"</li>
+        <li>Click "Claim Bonus"</li>
+      </ol>
+    </div>
+
+    <!-- Bonus rules -->
+    <div class="info-box">
+      <p class="info-title"><strong>Bonus rules:</strong></p>
+      <ul class="bonus-list">
+        <li>The offer is valid for deposits via Silus Crypto, Silus TRC20 only.</li>
+        <li>The bonus is valid until the first withdrawal of the day.</li>
+        <li>Bonus amount is 15% of the deposit.</li>
+        <li>Minimum deposit to activate the bonus is $10.</li>
+        <li>Maximum bonus amount is $1500.</li>
+        <li>Maximum bonus payout is 100% of deposit amount.</li>
+        <li>Bonus is valid for all games, except sportsbook.</li>
+        <li>The list of providers not available for bonus play: AMUSNET, EGT, PlayTech, Games Global, Spinomenal, Betsoft, Barbara Bang.</li>
+        <li>Wagering requirements: Bonus account wager x20, main account wager x3.</li>
+        <li>Term of the bonus is 2 days from the activation moment.</li>
+        <li>To convert the bonus to a real balance, click the "Claim" button after completing the wagering conditions</li>
+      </ul>
+    </div>
+
+    <!-- Terms & Conditions Modal Trigger -->
+    <div class="spoiler-wrapper">
+      <button class="modal-trigger modal-trigger-wide" data-modal="termsModal">
+        PROMOTION TERMS & CONDITIONS
+      </button>
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="buttons-wrapper">
+      <button class="btn btn-register" onclick="window.parent.location='?auth=1';">
+        REGISTER
+      </button>
+      <button class="btn btn-deposit" onclick="window.parent.location='https://www.eclipsebet.online/en/?profile=open&account=balance&page=deposit&selectedGroup=all&selectedMethod=Silus';">
+        DEPOSIT
+      </button>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- Terms & Conditions Modal -->
+<div class="modal-overlay" id="termsModal">
+  <div class="modal-content">
+    <button class="modal-close" data-close="termsModal">&times;</button>
+    <div class="modal-title">PROMOTION TERMS & CONDITIONS</div>
+    <div class="modal-body">
+      <p>- Players who open more than one account in violation of this promotion will not be paid and their accounts will be blocked without refund.</p>
+      <p>- EclipseBet reserves the right to unilaterally change the terms and conditions of the bonus, as well as to suspend or terminate this bonus. The website administration will inform players of any changes in bonus conditions by any means available (information on the website, e-mail, etc.).</p>
+      <p>- EclipseBet has the right to cancel any bets, winnings, bonuses, jackpots or any other prizes displayed or awarded to the player due to any technical, mechanical or software error or failure.</p>
+      <p>- Each player participating in this promotion confirms that he/she has read and agrees to these Terms and Conditions.</p>
+    </div>
+  </div>
+</div>
+
+<script src="crypto-bonus.js"></script>
+</body>
+</html>
