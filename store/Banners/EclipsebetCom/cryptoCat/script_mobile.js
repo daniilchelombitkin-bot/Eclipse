@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
         coin.src = coinUrls[Math.floor(Math.random() * coinUrls.length)];
         coin.className = 'coin';
 
-        // Размер монеты относительно ширины баннера (от 2% до 5.5%)
+        // Размер монеты относительно ширины баннера (от 3% до 7%)
         const bannerWidth = bannerWrapper.offsetWidth;
-        const minSize = bannerWidth * 0.02; // 2% от ширины баннера
-        const maxSize = bannerWidth * 0.055; // 5.5% от ширины баннера
+        const minSize = bannerWidth * 0.03; // 3% от ширины баннера
+        const maxSize = bannerWidth * 0.07; // 7% от ширины баннера
         const size = minSize + Math.random() * (maxSize - minSize);
         coin.style.width = size + 'px';
 
