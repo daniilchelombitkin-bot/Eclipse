@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isAnimating) return;
 
         createCoin();
-        const nextCoinDelay = 500; // Стабильный интервал 500ms между монетами
+        const nextCoinDelay = 380; // Стабильный интервал 380ms между монетами
         coinRainTimeout = setTimeout(startCoinRain, nextCoinDelay);
     }
 
