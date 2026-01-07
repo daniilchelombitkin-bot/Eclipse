@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     // Создание одной монеты
-    function createCoin() {
+    function createCoin(initialDelay = 0) {
         if (!isAnimating) return;
 
         const coin = document.createElement('img');
@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const endY = bannerHeight + 150;
         const drift = (Math.random() - 0.5) * 60;
         const endX = startX + drift;
-        const coinRotation = Math.random() * 720 - 360; // больше вращения
-        const duration = 6 + Math.random() * 4; // 6-10 секунд для постоянного присутствия монет
+        const coinRotation = Math.random() * 720 - 360;
+        const duration = 4 + Math.random() * 3; // 4-7 секунд - быстрее
 
         coin.style.left = startX + '%';
         coin.style.top = startY + 'px';
@@ -58,22 +58,24 @@ document.addEventListener('DOMContentLoaded', function() {
         coin.style.opacity = '1';
         coin.style.transition = `top ${duration}s ease-out, left ${duration}s ease-in-out, transform ${duration}s ease-in-out, opacity 0.8s ease-out`;
 
-        // Запускаем сразу
-        requestAnimationFrame(() => {
-            coin.style.top = endY + 'px';
-            coin.style.left = endX + '%';
-            coin.style.transform = `rotate(${coinRotation}deg)`;
-        });
+        // Запускаем с задержкой или сразу
+        setTimeout(() => {
+            requestAnimationFrame(() => {
+                coin.style.top = endY + 'px';
+                coin.style.left = endX + '%';
+                coin.style.transform = `rotate(${coinRotation}deg)`;
+            });
+        }, initialDelay);
 
         // Плавное исчезновение в конце
         setTimeout(() => {
             coin.style.opacity = '0';
-        }, duration * 1000 - 800);
+        }, duration * 1000 - 800 + initialDelay);
 
         // Удаляем монету после анимации
         setTimeout(() => {
             coin.remove();
-        }, duration * 1000 + 500);
+        }, duration * 1000 + 500 + initialDelay);
     }
 
     // Левитация основной группы монет
@@ -103,12 +105,20 @@ document.addEventListener('DOMContentLoaded', function() {
         levitationFrameId = requestAnimationFrame(animateCoinsGroup);
     }
 
+    // Создаем начальные монеты сразу
+    function createInitialCoins() {
+        // Создаем 8 монет с разными задержками для заполнения экрана
+        for (let i = 0; i < 8; i++) {
+            createCoin(i * 100); // Задержка 0, 100, 200, 300... мс
+        }
+    }
+
     // Создаем монеты с интервалом
     function startCoinRain() {
         if (!isAnimating) return;
 
         createCoin();
-        const nextCoinDelay = 400 + Math.random() * 300; // 400-700ms для стабильного дождя
+        const nextCoinDelay = 300 + Math.random() * 250; // 300-550ms для стабильного дождя
         coinRainTimeout = setTimeout(startCoinRain, nextCoinDelay);
     }
 
@@ -171,8 +181,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Запускаем анимации заново
         isAnimating = true;
 
-        // Запускаем монетный дождь сразу без паузы
-        startCoinRain();
+        // Создаем начальные монеты сразу для заполнения экрана
+        createInitialCoins();
+
+        // Запускаем монетный дождь
+        setTimeout(() => {
+            startCoinRain();
+        }, 800); // Начинаем непрерывный дождь после начальных монет
 
         // Запускаем левитацию после выезда группы монет (2 секунды)
         setTimeout(() => {
