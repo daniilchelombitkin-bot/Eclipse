@@ -211,8 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Добавляем курсор pointer на весь баннер
     bannerWrapper.style.cursor = 'pointer';
 
-    // Запускаем анимации при загрузке, если баннер сразу видим
-    if (bannerWrapper.getBoundingClientRect().top < window.innerHeight) {
-        restartAnimations();
-    }
+    // ВСЕГДА запускаем анимации сразу при загрузке
+    restartAnimations();
 });
