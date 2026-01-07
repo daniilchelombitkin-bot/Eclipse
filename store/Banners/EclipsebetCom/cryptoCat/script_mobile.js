@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const bannerWrapper = document.querySelector('.banner-wrapper');
     const coinsRain = document.querySelector('.coins-rain');
     const coinsGroup = document.querySelector('.coins-group');
-    const bannerText = document.querySelector('.banner-text');
-    const cryptoBadges = document.querySelector('.crypto-badges');
 
     let coinRainTimeout = null;
     let levitationFrameId = null;
@@ -114,91 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
         coinRainTimeout = setTimeout(startCoinRain, nextCoinDelay);
     }
 
-    // Остановка всех анимаций
-    function stopAnimations() {
-        isAnimating = false;
-
-        // Останавливаем монетный дождь
-        if (coinRainTimeout) {
-            clearTimeout(coinRainTimeout);
-            coinRainTimeout = null;
-        }
-
-        // Останавливаем левитацию
-        if (levitationFrameId) {
-            cancelAnimationFrame(levitationFrameId);
-            levitationFrameId = null;
-        }
-
-        // Удаляем все падающие монеты
-        const coins = coinsRain.querySelectorAll('.coin');
-        coins.forEach(coin => coin.remove());
-    }
-
-    // Перезапуск всех анимаций
-    function restartAnimations() {
-        // Сначала останавливаем всё
-        stopAnimations();
-
-        // Сбрасываем CSS анимации (только пульсации и дыхание)
-        if (bannerText) {
-            bannerText.style.animation = 'none';
-            void bannerText.offsetHeight;
-            bannerText.style.animation = '';
-        }
-
-        if (cryptoBadges) {
-            cryptoBadges.style.animation = 'none';
-            void cryptoBadges.offsetHeight;
-            cryptoBadges.style.animation = '';
-        }
-
-        // Сбрасываем transform левитации группы монет
-        if (coinsGroup) {
-            coinsGroup.style.transform = '';
-        }
-
-        // Сбрасываем переменные левитации
-        positionX = 0;
-        positionY = 0;
-        rotation = 0;
-        targetX = 0;
-        targetY = 0;
-        targetRotation = 0;
-        lastUpdate = Date.now();
-
-        // Запускаем анимации заново
-        isAnimating = true;
-
-        // Запускаем монетный дождь и левитацию сразу
-        startCoinRain();
-        animateCoinsGroup();
-    }
-
-    // Intersection Observer для отслеживания видимости баннера
-    const observerOptions = {
-        root: null, // относительно viewport
-        rootMargin: '0px',
-        threshold: 0.1 // баннер виден хотя бы на 10% (важно для мобильных)
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Баннер стал видимым - перезапускаем анимации
-                console.log('Banner is visible - restarting animations');
-                restartAnimations();
-            } else {
-                // Баннер скрылся - останавливаем анимации для экономии ресурсов
-                console.log('Banner is hidden - stopping animations');
-                stopAnimations();
-            }
-        });
-    }, observerOptions);
-
-    // Начинаем наблюдение за баннером
-    observer.observe(bannerWrapper);
-
     // Клик по баннеру
     bannerWrapper.addEventListener('click', function() {
         console.log('Banner clicked!');
@@ -209,6 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Добавляем курсор pointer на весь баннер
     bannerWrapper.style.cursor = 'pointer';
 
-    // ВСЕГДА запускаем анимации сразу при загрузке
-    restartAnimations();
+    // Запускаем анимации сразу при загрузке
+    isAnimating = true;
+    startCoinRain();
+    animateCoinsGroup();
 });
