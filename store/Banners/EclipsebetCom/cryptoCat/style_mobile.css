@@ -135,7 +135,6 @@ html {
     position: absolute;
     bottom: 3%;
     left: 45.3%;
-    transform: translateX(-50%);
     width: 76%;
     display: flex;
     justify-content: center;
@@ -144,9 +143,10 @@ html {
     filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.5));
     opacity: 0;
     transform: translateX(-50%) translateY(100%);
-    animation: slideInFromBottom 1s ease-out 1s forwards,
+    animation: slideInFromBottom 1s ease-out 0.5s forwards,
                badgesBreathe 4s ease-in-out 2s infinite;
     will-change: transform, opacity;
+    backface-visibility: hidden;
 }
 
 /* Выезд снизу */
