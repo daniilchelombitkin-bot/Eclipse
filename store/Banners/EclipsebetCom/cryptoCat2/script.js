@@ -177,29 +177,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2000);
     }
 
-    // Intersection Observer для отслеживания видимости баннера
-    const observerOptions = {
-        root: null, // относительно viewport
-        rootMargin: '0px',
-        threshold: 0.5 // баннер виден хотя бы на 50%
-    };
+    // Проверяем, находимся ли мы в iframe
+    const isInIframe = window.self !== window.top;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Баннер стал видимым - перезапускаем анимации
-                console.log('Banner is visible - restarting animations');
-                restartAnimations();
-            } else {
-                // Баннер скрылся - останавливаем анимации для экономии ресурсов
-                console.log('Banner is hidden - stopping animations');
-                stopAnimations();
-            }
-        });
-    }, observerOptions);
+    if (!isInIframe) {
+        // Только если НЕ в iframe - используем Intersection Observer для оптимизации
+        const observerOptions = {
+            root: null, // относительно viewport
+            rootMargin: '0px',
+            threshold: 0.5 // баннер виден хотя бы на 50%
+        };
 
-    // Начинаем наблюдение за баннером
-    observer.observe(bannerWrapper);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Баннер стал видимым - перезапускаем анимации
+                    console.log('Banner is visible - restarting animations');
+                    restartAnimations();
+                } else {
+                    // Баннер скрылся - останавливаем анимации для экономии ресурсов
+                    console.log('Banner is hidden - stopping animations');
+                    stopAnimations();
+                }
+            });
+        }, observerOptions);
+
+        // Начинаем наблюдение за баннером
+        observer.observe(bannerWrapper);
+    }
+    // Если в iframe - анимации будут работать всегда (запускаются ниже)
 
     // Клик по баннеру
     bannerWrapper.addEventListener('click', function() {
