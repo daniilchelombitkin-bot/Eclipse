@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
         coin.src = coinUrls[Math.floor(Math.random() * coinUrls.length)];
         coin.className = 'coin';
 
-        // Размер монеты относительно ширины баннера (от 1.5% до 4%) - меньше
+        // Размер монеты относительно ширины баннера (от 2% до 5.5%)
         const bannerWidth = bannerWrapper.offsetWidth;
-        const minSize = bannerWidth * 0.015; // 1.5% от ширины баннера
-        const maxSize = bannerWidth * 0.04; // 4% от ширины баннера
+        const minSize = bannerWidth * 0.02; // 2% от ширины баннера
+        const maxSize = bannerWidth * 0.055; // 5.5% от ширины баннера
         const size = minSize + Math.random() * (maxSize - minSize);
         coin.style.width = size + 'px';
 
@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const startX = Math.random() * 100;
         const startY = -150;
         const endY = bannerHeight + 150;
-        const drift = (Math.random() - 0.5) * 50;
+        const drift = (Math.random() - 0.5) * 60;
         const endX = startX + drift;
-        const coinRotation = Math.random() * 360 - 180;
-        const duration = 8 + Math.random() * 6; // 8-14 секунд
+        const coinRotation = Math.random() * 720 - 360; // больше вращения
+        const duration = 6 + Math.random() * 4; // 6-10 секунд для постоянного присутствия монет
 
         coin.style.left = startX + '%';
         coin.style.top = startY + 'px';
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Плавная анимация с ease-out для естественного падения
         coin.style.opacity = '1';
-        coin.style.transition = `top ${duration}s ease-out, left ${duration}s ease-in-out, transform ${duration}s ease-in-out`;
+        coin.style.transition = `top ${duration}s ease-out, left ${duration}s ease-in-out, transform ${duration}s ease-in-out, opacity 0.8s ease-out`;
 
         // Запускаем сразу
         requestAnimationFrame(() => {
@@ -64,6 +64,11 @@ document.addEventListener('DOMContentLoaded', function() {
             coin.style.left = endX + '%';
             coin.style.transform = `rotate(${coinRotation}deg)`;
         });
+
+        // Плавное исчезновение в конце
+        setTimeout(() => {
+            coin.style.opacity = '0';
+        }, duration * 1000 - 800);
 
         // Удаляем монету после анимации
         setTimeout(() => {
@@ -103,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isAnimating) return;
 
         createCoin();
-        const nextCoinDelay = 300 + Math.random() * 400; // 0.3-0.7 секунды между монетами (чаще)
+        const nextCoinDelay = 200 + Math.random() * 300; // 200-500ms для вечного равномерного дождя
         coinRainTimeout = setTimeout(startCoinRain, nextCoinDelay);
     }
 
@@ -166,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Запускаем анимации заново
         isAnimating = true;
 
-        // Запускаем монетный дождь сразу
+        // Запускаем монетный дождь сразу без паузы
         startCoinRain();
 
         // Запускаем левитацию после выезда группы монет (2 секунды)
