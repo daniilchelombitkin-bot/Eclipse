@@ -156,9 +156,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (cryptoBadges) {
+            // КРИТИЧНО: Принудительно показываем плашки на мобильных
             cryptoBadges.style.animation = 'none';
-            void cryptoBadges.offsetHeight;
+            cryptoBadges.style.opacity = '0';
+            cryptoBadges.style.transform = 'translateX(-50%) translateY(100%)';
+            void cryptoBadges.offsetHeight; // Принудительный reflow
+
+            // Запускаем анимацию
             cryptoBadges.style.animation = '';
+
+            // Дополнительная гарантия через setTimeout
+            setTimeout(() => {
+                if (cryptoBadges) {
+                    cryptoBadges.style.opacity = '1';
+                    cryptoBadges.style.transform = 'translateX(-50%) translateY(0)';
+                }
+            }, 600);
         }
 
         // Сбрасываем переменные левитации
