@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0a0a0a;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+html {
+    overflow: hidden;
+}
+
+.banner-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1896px;
+    aspect-ratio: 1896 / 483;
+}
+
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Фоновое изображение с котом */
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Текст "15% BONUS" - слева вверху */
+.banner-text {
+    position: absolute;
+    left: 2.9%;
+    top: 18%;
+    width: 31.3%;
+    height: auto;
+    z-index: 99;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.9))
+            drop-shadow(0 0 40px rgba(0, 0, 0, 0.7))
+            drop-shadow(0 0 60px rgba(0, 0, 0, 0.5));
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideInFromLeft 1s ease-out 1s forwards,
+               textPulse 3s ease-in-out 2s infinite;
+}
+
+/* Выезд слева */
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Пульсация текста */
+@keyframes textPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Контейнер для монетного дождя - поверх баннера с фиксированным размером монет */
+.coins-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Отдельная монета */
+.coin {
+    position: absolute;
+    pointer-events: none;
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4))
+            drop-shadow(0 0 15px rgba(255, 215, 0, 0.2));
+}
+
+/* Группа левитирующих монет - справа вверху */
+.coins-group {
+    position: absolute;
+    right: 4.8%;
+    top: 1.5%;
+    width: 28%;
+    height: auto;
+    z-index: 99;
+    opacity: 0;
+    animation: slideInFromRight 1s ease-out 1s forwards;
+}
+
+/* Выезд справа */
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        right: -30%;
+    }
+    100% {
+        opacity: 1;
+        right: 4.8%;
+    }
+}
+
+/* Плашки crypto внизу */
+.crypto-badges {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 76%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.6))
+            drop-shadow(0 0 30px rgba(138, 43, 226, 0.4));
+    opacity: 0;
+    transform: translateX(-50%) translateY(100%);
+    animation: slideInFromBottom 1s ease-out 1s forwards,
+               badgesBreathe 4s ease-in-out 2s infinite;
+}
+
+/* Выезд снизу */
+@keyframes slideInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(100%) scale(1);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-10%) scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+/* Дыхание плашек с изменением прозрачности */
+@keyframes badgesBreathe {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+        filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.6))
+                drop-shadow(0 0 30px rgba(138, 43, 226, 0.4));
+    }
+    50% {
+        transform: translateX(-50%) scale(0.95);
+        opacity: 0.5;
+        filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.4))
+                drop-shadow(0 0 20px rgba(138, 43, 226, 0.3));
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+        filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.6))
+                drop-shadow(0 0 30px rgba(138, 43, 226, 0.4));
+    }
+}
+
+.crypto-silhouette {
+    width: 100%;
+    height: auto;
+}
+
+/* Кот */
+.cat {
+    position: absolute;
+    right: 35.8%;
+    top: -2.9%;
+    width: 27.5%;
+    height: auto;
+    z-index: 99;
+}
