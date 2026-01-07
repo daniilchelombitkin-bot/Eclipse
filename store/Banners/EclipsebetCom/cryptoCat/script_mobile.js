@@ -156,24 +156,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (cryptoBadges) {
-            // КРИТИЧНО: Принудительно показываем плашки на мобильных
+            // Сбрасываем и перезапускаем CSS анимацию
             cryptoBadges.style.animation = 'none';
             cryptoBadges.style.opacity = '0';
             cryptoBadges.style.transform = 'translateX(-50%) translateY(100%)';
-            cryptoBadges.style.display = 'flex';
             void cryptoBadges.offsetHeight; // Принудительный reflow
-
-            // Запускаем анимацию
             cryptoBadges.style.animation = '';
-
-            // Дополнительная гарантия через setTimeout
-            setTimeout(() => {
-                if (cryptoBadges) {
-                    cryptoBadges.style.opacity = '1';
-                    cryptoBadges.style.transform = 'translateX(-50%) translateY(0)';
-                    cryptoBadges.style.display = 'flex';
-                }
-            }, 400);
         }
 
         // Сбрасываем переменные левитации
