@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
         coin.src = coinUrls[Math.floor(Math.random() * coinUrls.length)];
         coin.className = 'coin';
 
-        // Размер монеты относительно ширины баннера (от 2% до 6%)
+        // Размер монеты относительно ширины баннера (от 1.5% до 4%) - меньше
         const bannerWidth = bannerWrapper.offsetWidth;
-        const minSize = bannerWidth * 0.02; // 2% от ширины баннера
-        const maxSize = bannerWidth * 0.06; // 6% от ширины баннера
+        const minSize = bannerWidth * 0.015; // 1.5% от ширины баннера
+        const maxSize = bannerWidth * 0.04; // 4% от ширины баннера
         const size = minSize + Math.random() * (maxSize - minSize);
         coin.style.width = size + 'px';
 
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isAnimating) return;
 
         createCoin();
-        const nextCoinDelay = 600 + Math.random() * 800; // 0.6-1.4 секунды между монетами
+        const nextCoinDelay = 300 + Math.random() * 400; // 0.3-0.7 секунды между монетами (чаще)
         coinRainTimeout = setTimeout(startCoinRain, nextCoinDelay);
     }
 
@@ -177,35 +177,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2000);
     }
 
-    // Проверяем, находимся ли мы в iframe
-    const isInIframe = window.self !== window.top;
+    // Intersection Observer для отслеживания видимости баннера
+    const observerOptions = {
+        root: null, // относительно viewport
+        rootMargin: '0px',
+        threshold: 0.5 // баннер виден хотя бы на 50%
+    };
 
-    if (!isInIframe) {
-        // Только если НЕ в iframe - используем Intersection Observer для оптимизации
-        const observerOptions = {
-            root: null, // относительно viewport
-            rootMargin: '0px',
-            threshold: 0.5 // баннер виден хотя бы на 50%
-        };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Баннер стал видимым - перезапускаем анимации
+                console.log('Banner is visible - restarting animations');
+                restartAnimations();
+            } else {
+                // Баннер скрылся - останавливаем анимации для экономии ресурсов
+                console.log('Banner is hidden - stopping animations');
+                stopAnimations();
+            }
+        });
+    }, observerOptions);
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Баннер стал видимым - перезапускаем анимации
-                    console.log('Banner is visible - restarting animations');
-                    restartAnimations();
-                } else {
-                    // Баннер скрылся - останавливаем анимации для экономии ресурсов
-                    console.log('Banner is hidden - stopping animations');
-                    stopAnimations();
-                }
-            });
-        }, observerOptions);
-
-        // Начинаем наблюдение за баннером
-        observer.observe(bannerWrapper);
-    }
-    // Если в iframe - анимации будут работать всегда (запускаются ниже)
+    // Начинаем наблюдение за баннером
+    observer.observe(bannerWrapper);
 
     // Клик по баннеру
     bannerWrapper.addEventListener('click', function() {
