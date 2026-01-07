@@ -160,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cryptoBadges.style.animation = 'none';
             cryptoBadges.style.opacity = '0';
             cryptoBadges.style.transform = 'translateX(-50%) translateY(100%)';
+            cryptoBadges.style.display = 'flex';
             void cryptoBadges.offsetHeight; // Принудительный reflow
 
             // Запускаем анимацию
@@ -170,8 +171,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (cryptoBadges) {
                     cryptoBadges.style.opacity = '1';
                     cryptoBadges.style.transform = 'translateX(-50%) translateY(0)';
+                    cryptoBadges.style.display = 'flex';
                 }
-            }, 600);
+            }, 400);
         }
 
         // Сбрасываем переменные левитации
