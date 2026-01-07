@@ -83,7 +83,7 @@ html {
     }
 }
 
-/* Контейнер для монетного дождя - поверх баннера с фиксированным размером монет */
+/* Контейнер для монетного дождя - ЗА всеми элементами */
 .coins-rain {
     position: absolute;
     top: 0;
@@ -91,7 +91,7 @@ html {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 10;
+    z-index: 1;
 }
 
 /* Отдельная монета */
@@ -139,12 +139,11 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 99;
+    z-index: 999;
     filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.5));
     opacity: 0;
     transform: translateX(-50%) translateY(100%);
-    animation: slideInFromBottom 1s ease-out 0.5s forwards,
-               badgesBreathe 4s ease-in-out 2s infinite;
+    animation: slideInFromBottom 1s ease-out 0.2s forwards;
     will-change: transform, opacity;
     backface-visibility: hidden;
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
