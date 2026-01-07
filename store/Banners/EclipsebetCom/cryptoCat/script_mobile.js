@@ -105,12 +105,12 @@ document.addEventListener('DOMContentLoaded', function() {
         levitationFrameId = requestAnimationFrame(animateCoinsGroup);
     }
 
-    // Создаем монеты с интервалом
+    // Создаем монеты с интервалом (реже на мобильных для производительности)
     function startCoinRain() {
         if (!isAnimating) return;
 
         createCoin();
-        const nextCoinDelay = 380; // Стабильный интервал 380ms между монетами
+        const nextCoinDelay = 600; // Стабильный интервал 600ms между монетами (меньше нагрузка)
         coinRainTimeout = setTimeout(startCoinRain, nextCoinDelay);
     }
 
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const observerOptions = {
         root: null, // относительно viewport
         rootMargin: '0px',
-        threshold: 0.5 // баннер виден хотя бы на 50%
+        threshold: 0.1 // баннер виден хотя бы на 10% (важно для мобильных)
     };
 
     const observer = new IntersectionObserver((entries) => {
