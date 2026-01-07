@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isAnimating) return;
 
         createCoin();
-        const nextCoinDelay = 200 + Math.random() * 300; // 200-500ms для вечного равномерного дождя
+        const nextCoinDelay = 400 + Math.random() * 300; // 400-700ms для стабильного дождя
         coinRainTimeout = setTimeout(startCoinRain, nextCoinDelay);
     }
 
