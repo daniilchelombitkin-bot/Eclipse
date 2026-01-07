@@ -105,20 +105,12 @@ document.addEventListener('DOMContentLoaded', function() {
         levitationFrameId = requestAnimationFrame(animateCoinsGroup);
     }
 
-    // Создаем начальные монеты сразу
-    function createInitialCoins() {
-        // Создаем 8 монет с разными задержками для заполнения экрана
-        for (let i = 0; i < 8; i++) {
-            createCoin(i * 100); // Задержка 0, 100, 200, 300... мс
-        }
-    }
-
     // Создаем монеты с интервалом
     function startCoinRain() {
         if (!isAnimating) return;
 
         createCoin();
-        const nextCoinDelay = 300 + Math.random() * 250; // 300-550ms для стабильного дождя
+        const nextCoinDelay = 500; // Стабильный интервал 500ms между монетами
         coinRainTimeout = setTimeout(startCoinRain, nextCoinDelay);
     }
 
@@ -181,13 +173,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Запускаем анимации заново
         isAnimating = true;
 
-        // Создаем начальные монеты сразу для заполнения экрана
-        createInitialCoins();
-
-        // Запускаем монетный дождь
-        setTimeout(() => {
-            startCoinRain();
-        }, 800); // Начинаем непрерывный дождь после начальных монет
+        // Запускаем монетный дождь сразу
+        startCoinRain();
 
         // Запускаем левитацию после выезда группы монет (2 секунды)
         setTimeout(() => {
