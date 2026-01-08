@@ -21,7 +21,6 @@ html {
 .banner-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1000px;
     aspect-ratio: 1000 / 800;
 }
 
