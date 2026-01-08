@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spor Bahisler için %50 Cashback | EclipseBet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="sport-cashback.css" />
+</head>
+<body>
+
+<div class="promo-container">
+
+  <section class="promo-section">
+
+    <!-- PRIZE SHOWCASE -->
+    <div class="prize-showcase">
+      <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+      <div class="prize-label">SPOR CASHBACK</div>
+      <div class="prize-amount">
+        <span class="currency">50%</span>
+      </div>
+      <div class="prize-subtitle">Spor bahisleri için bonuslar</div>
+    </div>
+
+    <!-- Bonus Kuralları -->
+    <div class="info-box">
+      <p class="info-title"><strong>Bonus Kuralları:</strong></p>
+      <ol class="bonus-list">
+        <li>Cashback tutarı bonus bakiyesine aktarılır*.</li>
+        <li>CashBack her gün, bir önceki takvim gününün**, sadece spor bahisleri sonuçlarına göre yatırır.</li>
+        <li>Promosyona katılabilmek için kayıp miktarı en az 30$ / ₺1000 olması gerekmektedir.</li>
+        <li>Bonus tutarı kayıp tutarının %50'sidir.</li>
+        <li>Bonus aktif ettiktan sonra 7 gün içeresinde geçerlidir.</li>
+        <li>Bonus sadece slot veya Eclipse Live oyunlarda için geçerlidir.</li>
+        <li>Şu oyun sağlayıcılarda bonus geçerli değildir : AMUSNET, EGT, PlayTech, Games Global, Spinomenal, Betsoft, Barbara Bang.</li>
+        <li>Çevrim şartı: Bonus x60 katı.</li>
+      </ol>
+      <p style="font-size: 13px; color: #c0c0c0; margin-top: 12px;">
+        * Hesab para birimi olarak yatırır.<br />
+        ** Bir "oyun günü", aynı günün 00:00 (UTC+03:00) ile 23:59 (UTC+03:00) saatleri arasında zaman olarak kabul edilir.
+      </p>
+    </div>
+
+    <!-- Cashback Seviyeleri -->
+    <div class="info-box">
+      <p class="info-title"><strong>Kayıp miktarına bağlı olarak aşağıdaki bonuslar verilir:</strong></p>
+      <table class="bonus-table">
+        <tbody>
+          <tr>
+            <td>Sport CashBack Classic</td>
+            <td>$30-$300 / ₺1000 - ₺10.000</td>
+          </tr>
+          <tr>
+            <td>Sport CashBack Gold</td>
+            <td>301 $ - 1500 $ / ₺10.001 - ₺50.000</td>
+          </tr>
+          <tr>
+            <td>Sport CashBack VIP</td>
+            <td>$1501+ / ₺50.001+ (ancak 3.000 $/100.000 ₺'den fazla olmamalıdır</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bonus Ödeme Üst Limitleri -->
+    <div class="info-box">
+      <p class="info-title"><strong>Bonus odeme ust limitleri:</strong></p>
+      <table class="bonus-table">
+        <tbody>
+          <tr>
+            <td>Sport CashBack Classic</td>
+            <td>kayıp %100'üne eşit</td>
+            <td>fakat 300 $/10.000 ₺'den fazla değil</td>
+          </tr>
+          <tr>
+            <td>Sport CashBack Gold</td>
+            <td>kayıp %100'üne eşit</td>
+            <td>ancak 1.500$/50.000₺'yi geçemez</td>
+          </tr>
+          <tr>
+            <td>Sport CashBack VIP</td>
+            <td>kayıp %100'üne eşit</td>
+            <td>ancak 6.000 $/200.000 ₺'den fazla olmamalıdır</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Promosyon Şartlar ve Koşullar -->
+    <div class="spoiler-wrapper">
+      <button class="modal-trigger modal-trigger-wide" data-modal="termsModal">
+        PROMOSYON ŞARTLARI VE KOŞULLARI
+      </button>
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="buttons-wrapper">
+      <button class="btn btn-register" onclick="window.parent.location='/tr/sports/pre-match/event-view/';">
+        ŞIMDI BAHIS ET
+      </button>
+      <button class="btn btn-deposit" onclick="window.parent.location='/tr/?profile=open&account=balance&page=deposit&selectedGroup=all';">
+        PARA YATIR
+      </button>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- Terms & Conditions Modal -->
+<div class="modal-overlay" id="termsModal">
+  <div class="modal-content">
+    <button class="modal-close" data-close="termsModal">&times;</button>
+    <div class="modal-title">PROMOSYON ŞARTLARI VE KOŞULLARI</div>
+    <div class="modal-body">
+      <p>- Bonus almak için birden fazla hesap açarsanız, hesapları herhangi bir geri ödeme yapmadan bloke etmek mümkündür.</p>
+      <p>- EclipseBet, bonusun hüküm ve koşullarını tek taraflı olarak değiştirme ve bu bonusu askıya alma veya feshetme hakkını saklı tutar. Web sitesi yönetimi sizi mevcut herhangi bir yolla (eclipsebet.com, e-posta bülteni vb.) bilgilendirecektir.</p>
+      <p>- EclipseBet, herhangi bir teknik, mekanik veya yazılım hatası veya arızası nedeniyle Oyuncuya gösterilen veya verilen bahisleri, kazançları, ikramiyeleri, ikramiyeleri veya diğer ödülleri iptal etme hakkına sahiptir.</p>
+      <p>- Bu promosyona katılan her oyuncu, bu Hüküm ve Koşulları okuduğunu ve kabul ettiğini onayla.</p>
+    </div>
+  </div>
+</div>
+
+<script src="sport-cashback.js"></script>
+</body>
+</html>

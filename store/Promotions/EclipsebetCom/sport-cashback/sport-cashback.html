@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sports Cashback 50% | EclipseBet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="sport-cashback.css" />
+</head>
+<body>
+
+<div class="promo-container">
+
+  <section class="promo-section">
+
+    <!-- PRIZE SHOWCASE -->
+    <div class="prize-showcase">
+      <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+      <div class="prize-label">SPORTS CASHBACK</div>
+      <div class="prize-amount">
+        <span class="currency">50%</span>
+      </div>
+      <div class="prize-subtitle">Bonuses for sports betting</div>
+    </div>
+
+    <!-- Bonus Rules -->
+    <div class="info-box">
+      <p class="info-title"><strong>Bonus Rules:</strong></p>
+      <ol class="bonus-list">
+        <li>Cashback amount is credited to bonus balance*.</li>
+        <li>Cashback is credited daily based on results of the previous calendar day** and only on the basis of calculated sport bets.</li>
+        <li>To participate in the promotion, the amount of losses must be at least $30 / ₺1000.</li>
+        <li>The bonus amount is 50% of the loss amount.</li>
+        <li>The bonus is valid for 7 days from the time of activation.</li>
+        <li>Bonus is valid only for slot games and Eclipse Live Provider.</li>
+        <li>The list of providers not available for bonus play: AMUSNET, EGT, PlayTech, Games Global, Spinomenal, Betsoft, Barbara Bang.</li>
+        <li>Wagering requirements: Bonus account wagering x60.</li>
+      </ol>
+      <p style="font-size: 13px; color: #c0c0c0; margin-top: 12px;">
+        * In the currency chosen by the owner of the game account.<br />
+        ** "Calendar day" is the time starting from 00:00 (UTC+03:00) to 23:59 (UTC+03:00) on the same day.
+      </p>
+    </div>
+
+    <!-- Cashback Levels -->
+    <div class="info-box">
+      <p class="info-title"><strong>Depending on the amount of losses, the following bonuses are given:</strong></p>
+      <table class="bonus-table">
+        <tbody>
+          <tr>
+            <td>Sport CashBack Classic</td>
+            <td>$30-$300 / ₺1000 - ₺10,000</td>
+          </tr>
+          <tr>
+            <td>Sport CashBack Gold</td>
+            <td>$301-$1500 / ₺10,001 - ₺50,000</td>
+          </tr>
+          <tr>
+            <td>Sport CashBack VIP</td>
+            <td>$1501+ / ₺50,001+ (not more then $3,000 / ₺100,000)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Maximum Bonus Conversion -->
+    <div class="info-box">
+      <p class="info-title"><strong>Maximum Bonus Conversion:</strong></p>
+      <table class="bonus-table">
+        <tbody>
+          <tr>
+            <td>Sport CashBack Classic</td>
+            <td>100% of the lost</td>
+            <td>not more than $300 / ₺10,000</td>
+          </tr>
+          <tr>
+            <td>Sport CashBack Gold</td>
+            <td>100% of the lost</td>
+            <td>not more than $1,500 / ₺50,000</td>
+          </tr>
+          <tr>
+            <td>Sport CashBack VIP</td>
+            <td>100% of the lost</td>
+            <td>not more than $6,000 / ₺200,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Terms & Conditions Modal Trigger -->
+    <div class="spoiler-wrapper">
+      <button class="modal-trigger modal-trigger-wide" data-modal="termsModal">
+        PROMOTION TERMS & CONDITIONS
+      </button>
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="buttons-wrapper">
+      <button class="btn btn-register" onclick="window.parent.location='/en/sports/pre-match/event-view/';">
+        BET NOW
+      </button>
+      <button class="btn btn-deposit" onclick="window.parent.location='/en/?profile=open&account=balance&page=deposit&selectedGroup=all';">
+        DEPOSIT
+      </button>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- Terms & Conditions Modal -->
+<div class="modal-overlay" id="termsModal">
+  <div class="modal-content">
+    <button class="modal-close" data-close="termsModal">&times;</button>
+    <div class="modal-title">PROMOTION TERMS & CONDITIONS</div>
+    <div class="modal-body">
+      <p>- Players who open more than one account in violation of this promotion will not be paid and their accounts will be blocked without refund.</p>
+      <p>- EclipseBet reserves the right to unilaterally change the terms and conditions of the bonus, as well as to suspend or terminate this bonus. The website administration will inform players of any changes in bonus conditions by any means available (information on the website, e-mail, etc.).</p>
+      <p>- EclipseBet has the right to cancel any bets, winnings, bonuses, jackpots or any other prizes displayed or awarded to the player due to any technical, mechanical or software error or failure.</p>
+      <p>- Each player participating in this promotion confirms that he/she has read and agrees to these Terms and Conditions.</p>
+    </div>
+  </div>
+</div>
+
+<script src="sport-cashback.js"></script>
+</body>
+</html>
