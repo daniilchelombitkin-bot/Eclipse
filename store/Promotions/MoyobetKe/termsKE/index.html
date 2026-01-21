@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0e1a;
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #4ade80, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: #151d30;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border: 1px solid #1e2a45;
+        }
+
+        .toc-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #4ade80;
+            margin-bottom: 15px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+        }
+
+        .toc-list a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .toc-list a:hover {
+            color: #4ade80;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-number {
+            background: #4ade80;
+            color: #0a0e1a;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section-content {
+            color: #d1d5db;
+            font-size: 15px;
+            padding-left: 40px;
+        }
+
+        .section-content p {
+            margin-bottom: 12px;
+        }
+
+        .section-content ul {
+            margin: 12px 0;
+            padding-left: 20px;
+            list-style: disc;
+        }
+
+        .section-content li {
+            margin-bottom: 8px;
+        }
+
+        .section-content li::marker {
+            color: #4ade80;
+        }
+
+        /* Note boxes */
+        .note {
+            background: #151d30;
+            border: 1px solid #1e2a45;
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin: 16px 0;
+            position: relative;
+        }
+
+        .note::before {
+            content: attr(data-label);
+            position: absolute;
+            top: -10px;
+            left: 16px;
+            background: #4ade80;
+            color: #0a0e1a;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .note.warning::before {
+            background: #ef4444;
+            color: #fff;
+        }
+
+        .note.info::before {
+            background: #3b82f6;
+            color: #fff;
+        }
+
+        .note-content {
+            color: #e5e7eb;
+            font-size: 14px;
+        }
+
+        /* Rules table */
+        .rules-table {
+            background: #151d30;
+            border: 1px solid #1e2a45;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .rules-table-header {
+            background: linear-gradient(90deg, #4ade80, #22d3ee);
+            color: #0a0e1a;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 12px 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .rules-table-row {
+            display: flex;
+            border-bottom: 1px solid #1e2a45;
+            transition: background 0.2s ease;
+        }
+
+        .rules-table-row:last-child {
+            border-bottom: none;
+        }
+
+        .rules-table-row:hover {
+            background: rgba(74, 222, 128, 0.05);
+        }
+
+        .rules-table-cell {
+            padding: 14px 16px;
+            font-size: 14px;
+            color: #d1d5db;
+        }
+
+        .rules-table-cell:first-child {
+            width: 140px;
+            flex-shrink: 0;
+            color: #fbbf24;
+            font-weight: 600;
+            border-right: 1px solid #1e2a45;
+        }
+
+        .rules-table-cell:last-child {
+            flex: 1;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: linear-gradient(135deg, #1e1b4b, #312e81);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 40px;
+            text-align: center;
+            border: 1px solid #4c1d95;
+        }
+
+        .disclaimer-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 10px;
+        }
+
+        .disclaimer-text {
+            color: #c4b5fd;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            body {
+                padding: 25px 15px;
+            }
+
+            .page-title {
+                font-size: 28px;
+            }
+
+            .toc {
+                padding: 20px;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .section-content {
+                padding-left: 0;
+                font-size: 14px;
+            }
+
+            .rules-table-row {
+                flex-direction: column;
+            }
+
+            .rules-table-cell:first-child {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #1e2a45;
+                padding: 10px 16px;
+            }
+
+            .rules-table-cell:last-child {
+                padding: 12px 16px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0e1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e2a45;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1 class="page-title">Terms & Conditions</h1>
+        </header>
+
+        <nav class="toc">
+            <h2 class="toc-title">Contents</h2>
+            <ul class="toc-list">
+                <li><a href="#participants">1. Participants</a></li>
+                <li><a href="#rules">2. Participation Rules</a></li>
+                <li><a href="#processing">3. Comment Processing & Table Management</a></li>
+                <li><a href="#winners">4. Winner Selection</a></li>
+                <li><a href="#prizes">5. Prizes</a></li>
+                <li><a href="#delivery">6. Prize Delivery</a></li>
+                <li><a href="#verification">7. Identity Verification</a></li>
+                <li><a href="#liability">8. Liability</a></li>
+                <li><a href="#guidelines">9. Community Guidelines</a></li>
+                <li><a href="#rights">10. Rights & Usage</a></li>
+                <li><a href="#disclaimer">11. Disclaimer of Association</a></li>
+            </ul>
+        </nav>
+
+        <section class="section" id="participants">
+            <h2 class="section-title">
+                <span class="section-number">1</span>
+                Participants
+            </h2>
+            <div class="section-content">
+                <ul>
+                    <li>Participation is open only to individuals aged 18 years and above.</li>
+                    <li>MoyobetKE does not verify the age of participants at the time they complete the giveaway conditions; however, prizes can only be awarded to individuals of legal age.</li>
+                    <li>If a participant is found to be under 18, their right to receive a prize will be annulled.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="rules">
+            <h2 class="section-title">
+                <span class="section-number">2</span>
+                Participation Rules
+            </h2>
+            <div class="section-content">
+                <ul>
+                    <li>An entry is considered valid only if all conditions stated in the campaign post are fulfilled (follow, like, comment/message, complete the challenge).</li>
+                    <li>Only the last 100 valid entries per challenge are counted.</li>
+                    <li>Participation is free and voluntary.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="processing">
+            <h2 class="section-title">
+                <span class="section-number">3</span>
+                Comment Processing & Table Management
+            </h2>
+            <div class="section-content">
+                <ul>
+                    <li>Each participant is recorded in the campaign tracking table throughout the giveaway period.</li>
+                    <li>Comment submissions close every Friday after 17:00 (EAT).</li>
+                    <li>Comments posted later than 16:59:59 are not counted and are not added to the table.</li>
+                </ul>
+
+                <div class="note" data-label="After deadline">
+                    <div class="note-content">
+                        After the comment submission period ends:
+                        <ul style="margin-top: 10px;">
+                            <li>Duplicate comments are removed. Only the latest comment from each participant remains (e.g., if someone commented on Monday, Wednesday, and Friday — only Friday's comment is valid).</li>
+                            <li>Once duplicates are removed, the table is renumbered in reverse order, starting from the last valid comment (up to a maximum of 100).</li>
+                            <li>Winners are determined according to the pre-published formula (positions 1, 21, 41, 61, 81).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="rules-table">
+                    <div class="rules-table-header">Winner Selection Based on Participant Count</div>
+                    <div class="rules-table-row">
+                        <div class="rules-table-cell">&lt; 100</div>
+                        <div class="rules-table-cell">If the number of participants is less than 100, we select according to the following principle: 1st, 21st, 41st, 61st, and the last participant.</div>
+                    </div>
+                    <div class="rules-table-row">
+                        <div class="rules-table-cell">&lt; 60</div>
+                        <div class="rules-table-cell">If the number of participants is less than 60, we select according to the following principle: 1st, 21st, 41st, the second-to-last, and the last participant.</div>
+                    </div>
+                    <div class="rules-table-row">
+                        <div class="rules-table-cell">&lt; 40</div>
+                        <div class="rules-table-cell">If the number of participants is less than 40, we select according to the following principle: 1st, 21st, and the last three participants.</div>
+                    </div>
+                    <div class="rules-table-row">
+                        <div class="rules-table-cell">&lt; 20</div>
+                        <div class="rules-table-cell">If the number of participants is less than 20, we select according to the following principle: 1st, and the last four participants.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="winners">
+            <h2 class="section-title">
+                <span class="section-number">4</span>
+                Winner Selection
+            </h2>
+            <div class="section-content">
+                <ul>
+                    <li>Winners are selected fairly and transparently based on the verified and renumbered table.</li>
+                    <li>MoyobetKE reserves the right to disqualify incomplete, fraudulent, or invalid entries.</li>
+                    <li>MoyobetKE's decision regarding winners and prize distribution is final and binding.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="prizes">
+            <h2 class="section-title">
+                <span class="section-number">5</span>
+                Prizes
+            </h2>
+            <div class="section-content">
+                <ul>
+                    <li>Prizes include: airtime, data bundles, and MoyobetKE-branded hoodies.</li>
+                    <li>Prizes are non-exchangeable, non-refundable, and cannot be converted to cash.</li>
+                    <li>MoyobetKE reserves the right to substitute a prize of equal or greater value if necessary.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="delivery">
+            <h2 class="section-title">
+                <span class="section-number">6</span>
+                Prize Delivery
+            </h2>
+            <div class="section-content">
+                <ul>
+                    <li>Airtime / Data bundles: Credited the next Monday after the end of the giveaway.</li>
+                    <li>Hoodies: Can be collected from MoyobetKE offices or delivered by courier (within 3–5 business days). A tracking code will be provided.</li>
+                    <li>Delivery costs are covered by MoyobetKE unless stated otherwise in advance.</li>
+                    <li>Winners must provide accurate contact details and confirm receipt.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="verification">
+            <h2 class="section-title">
+                <span class="section-number">7</span>
+                Identity Verification
+            </h2>
+            <div class="section-content">
+                <ul>
+                    <li>The participant agrees, upon MoyobetKE's request, to provide documents confirming they are 18 years of age or older, as well as proof of identity and residential address for the purpose of verification and prize delivery.</li>
+                    <li>Failure to provide the requested information may result in disqualification and forfeiture of the prize.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="liability">
+            <h2 class="section-title">
+                <span class="section-number">8</span>
+                Liability
+            </h2>
+            <div class="section-content">
+                <ul>
+                    <li>MoyobetKE is not responsible for technical issues, delivery delays, late entries, or failure to receive a prize due to incorrect contact details.</li>
+                    <li>Participation is free and voluntary.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="guidelines">
+            <h2 class="section-title">
+                <span class="section-number">9</span>
+                Community Guidelines
+            </h2>
+            <div class="section-content">
+                <ul>
+                    <li>All participant entries must comply with Instagram's Community Guidelines.</li>
+                    <li>Abusive, inappropriate, or unrelated content will be removed and disqualified.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="rights">
+            <h2 class="section-title">
+                <span class="section-number">10</span>
+                Rights & Usage
+            </h2>
+            <div class="section-content">
+                <p>By participating, you grant MoyobetKE the right to repost or share your content (screenshots, comments, messages) for campaign purposes.</p>
+            </div>
+        </section>
+
+        <section class="section" id="disclaimer">
+            <h2 class="section-title">
+                <span class="section-number">11</span>
+                Disclaimer of Association
+            </h2>
+            <div class="section-content">
+                <p>This campaign is not sponsored, endorsed, administered by, or associated with Instagram or Meta.</p>
+            </div>
+        </section>
+
+        <div class="disclaimer">
+            <div class="disclaimer-title">Short Disclaimer (for each Reel caption)</div>
+            <p class="disclaimer-text">"18+ only. Participation is free and voluntary. Winners are selected from valid entries. Prizes are non-cash and non-transferable. MoyobetKE's decision is final. Not affiliated with Instagram/Meta."</p>
+        </div>
+    </div>
+</body>
+</html>
