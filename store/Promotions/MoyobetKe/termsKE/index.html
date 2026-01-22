@@ -34,7 +34,7 @@
         .page-title {
             font-size: 36px;
             font-weight: 800;
-            background: linear-gradient(90deg, #4ade80, #22d3ee);
+            background: linear-gradient(90deg, #b8ff00, #00ff88, #dfff00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -42,17 +42,18 @@
 
         /* Table of Contents */
         .toc {
-            background: #151d30;
+            background: #0d1a12;
             border-radius: 12px;
             padding: 25px;
             margin-bottom: 40px;
-            border: 1px solid #1e2a45;
+            border: 1px solid rgba(184, 255, 0, 0.2);
+            box-shadow: 0 0 20px rgba(184, 255, 0, 0.05);
         }
 
         .toc-title {
             font-size: 16px;
             font-weight: 700;
-            color: #4ade80;
+            color: #b8ff00;
             margin-bottom: 15px;
         }
 
@@ -71,7 +72,8 @@
         }
 
         .toc-list a:hover {
-            color: #4ade80;
+            color: #b8ff00;
+            text-shadow: 0 0 10px rgba(184, 255, 0, 0.5);
         }
 
         /* Sections */
@@ -82,7 +84,7 @@
         .section-title {
             font-size: 18px;
             font-weight: 700;
-            color: #fbbf24;
+            color: #dfff00;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
@@ -90,7 +92,7 @@
         }
 
         .section-number {
-            background: #4ade80;
+            background: linear-gradient(135deg, #b8ff00, #00ff88);
             color: #0a0e1a;
             width: 28px;
             height: 28px;
@@ -124,13 +126,13 @@
         }
 
         .section-content li::marker {
-            color: #4ade80;
+            color: #b8ff00;
         }
 
         /* Note boxes */
         .note {
-            background: #151d30;
-            border: 1px solid #1e2a45;
+            background: #0d1a12;
+            border: 1px solid rgba(184, 255, 0, 0.15);
             border-radius: 10px;
             padding: 18px 20px;
             margin: 16px 0;
@@ -142,7 +144,7 @@
             position: absolute;
             top: -10px;
             left: 16px;
-            background: #4ade80;
+            background: linear-gradient(90deg, #b8ff00, #00ff88);
             color: #0a0e1a;
             font-size: 11px;
             font-weight: 700;
@@ -168,15 +170,15 @@
 
         /* Rules table */
         .rules-table {
-            background: #151d30;
-            border: 1px solid #1e2a45;
+            background: #0d1a12;
+            border: 1px solid rgba(184, 255, 0, 0.2);
             border-radius: 12px;
             overflow: hidden;
             margin: 20px 0;
         }
 
         .rules-table-header {
-            background: linear-gradient(90deg, #4ade80, #22d3ee);
+            background: linear-gradient(90deg, #b8ff00, #00ff88, #dfff00);
             color: #0a0e1a;
             font-weight: 700;
             font-size: 13px;
@@ -187,7 +189,7 @@
 
         .rules-table-row {
             display: flex;
-            border-bottom: 1px solid #1e2a45;
+            border-bottom: 1px solid rgba(184, 255, 0, 0.15);
             transition: background 0.2s ease;
         }
 
@@ -196,7 +198,7 @@
         }
 
         .rules-table-row:hover {
-            background: rgba(74, 222, 128, 0.05);
+            background: rgba(184, 255, 0, 0.08);
         }
 
         .rules-table-cell {
@@ -208,9 +210,9 @@
         .rules-table-cell:first-child {
             width: 140px;
             flex-shrink: 0;
-            color: #fbbf24;
+            color: #dfff00;
             font-weight: 600;
-            border-right: 1px solid #1e2a45;
+            border-right: 1px solid rgba(184, 255, 0, 0.15);
         }
 
         .rules-table-cell:last-child {
@@ -219,23 +221,24 @@
 
         /* Disclaimer */
         .disclaimer {
-            background: linear-gradient(135deg, #1e1b4b, #312e81);
+            background: linear-gradient(135deg, #0d1a0d, #0a1f15);
             border-radius: 12px;
             padding: 25px;
             margin-top: 40px;
             text-align: center;
-            border: 1px solid #4c1d95;
+            border: 1px solid rgba(184, 255, 0, 0.3);
+            box-shadow: 0 0 30px rgba(184, 255, 0, 0.1);
         }
 
         .disclaimer-title {
             font-size: 16px;
             font-weight: 700;
-            color: #fbbf24;
+            color: #b8ff00;
             margin-bottom: 10px;
         }
 
         .disclaimer-text {
-            color: #c4b5fd;
+            color: #9fcc66;
             font-size: 14px;
             line-height: 1.6;
         }
@@ -274,7 +277,7 @@
             .rules-table-cell:first-child {
                 width: 100%;
                 border-right: none;
-                border-bottom: 1px solid #1e2a45;
+                border-bottom: 1px solid rgba(184, 255, 0, 0.15);
                 padding: 10px 16px;
             }
 
@@ -286,9 +289,8 @@
         /* Back Button - Fixed */
         .back-button {
             position: fixed;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
+            right: 25px;
+            top: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -300,7 +302,7 @@
             text-decoration: none;
             font-weight: 800;
             font-size: 13px;
-            padding: 14px 20px;
+            padding: 12px 20px;
             border-radius: 50px;
             transition: all 0.3s ease;
             box-shadow:
@@ -334,7 +336,7 @@
         }
 
         .back-button:hover {
-            transform: translateY(-50%) scale(1.05);
+            transform: scale(1.05);
             box-shadow:
                 0 0 30px rgba(184, 255, 0, 0.8),
                 0 0 60px rgba(0, 255, 136, 0.5),
@@ -351,15 +353,16 @@
         }
 
         /* Mobile: Fixed bottom */
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
             .back-button {
                 position: fixed;
+                right: auto;
                 left: 50%;
                 bottom: 20px;
                 top: auto;
                 transform: translateX(-50%);
-                padding: 16px 28px;
-                font-size: 14px;
+                padding: 14px 24px;
+                font-size: 13px;
                 box-shadow:
                     0 0 25px rgba(184, 255, 0, 0.6),
                     0 0 50px rgba(0, 255, 136, 0.4),
@@ -371,7 +374,7 @@
             }
 
             body {
-                padding-bottom: 100px;
+                padding-bottom: 90px;
             }
         }
 
@@ -385,7 +388,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #1e2a45;
+            background: rgba(184, 255, 0, 0.15);
             border-radius: 4px;
         }
     </style>
