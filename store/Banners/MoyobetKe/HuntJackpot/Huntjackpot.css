@@ -22,7 +22,7 @@ html, body {
     position: absolute;
     width: 32%;
     left: 23%;
-    top: -6%;
+    top: 6%;
     pointer-events: none;
 
     animation: pulse 1.8s ease-in-out infinite;
@@ -34,3 +34,4 @@ html, body {
     50%  { transform: scale(1.06); }
     100% { transform: scale(1); }
 }
+
