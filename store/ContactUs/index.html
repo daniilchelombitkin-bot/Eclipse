@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoyoBetKE - Contact Us</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .scene {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1920px;
+      height: 1080px;
+      transform-origin: top left;
+    }
+
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+
+    .site-link {
+      position: absolute;
+      left: 732.76px;
+      top: 47px;
+      width: 452.24px;
+      height: 190px;
+      z-index: 2;
+      text-decoration: none;
+    }
+
+    .site-link .logo-img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 452.24px;
+      height: 71px;
+    }
+
+    .site-link .backtosite-img {
+      position: absolute;
+      left: 12.24px;
+      top: 94px;
+      width: 423px;
+      height: 96px;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .site-link:hover .backtosite-img {
+      transform: scale(1.06);
+      filter: brightness(1.15) drop-shadow(0 0 12px #a855f7);
+    }
+
+    .whatsapp-link {
+      position: absolute;
+      left: 145px;
+      top: 714px;
+      width: 661px;
+      height: 137px;
+      z-index: 2;
+    }
+
+    .whatsapp-link img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .whatsapp-link:hover img {
+      transform: scale(1.04);
+      filter: brightness(1.15) drop-shadow(0 0 14px #4ade80);
+    }
+  </style>
+</head>
+<body>
+  <div class="scene" id="scene">
+
+    <img class="bg" src="assets/background.webp" alt="">
+
+    <a class="site-link" href="https://www.moyobet.ke">
+      <img class="logo-img" src="assets/logo.png" alt="MoyoBetKE">
+      <img class="backtosite-img" src="assets/backtosite.png" alt="Back to site">
+    </a>
+
+    <a class="whatsapp-link" href="https://wa.me/254113773333" target="_blank">
+      <img src="assets/whatsapp.png" alt="+254 113 773333 WhatsApp">
+    </a>
+
+  </div>
+
+  <script>
+    function scaleScene() {
+      const scene = document.getElementById('scene');
+      const scaleX = window.innerWidth / 1920;
+      const scaleY = window.innerHeight / 1080;
+      scene.style.transform = `scale(${scaleX}, ${scaleY})`;
+    }
+
+    scaleScene();
+    window.addEventListener('resize', scaleScene);
+  </script>
+</body>
+</html>
