@@ -35,56 +35,34 @@
       height: 1080px;
     }
 
-    .site-link {
+    .logo-img {
       position: absolute;
-      left: 732.76px;
-      top: 47px;
+      left: 608.01px;
+      top: 64px;
       width: 452.24px;
-      height: 190px;
+      height: 71px;
+      z-index: 2;
+    }
+
+    .backtosite-link {
+      position: absolute;
+      left: 197px;
+      top: 843px;
+      width: 423px;
+      height: 96px;
       z-index: 2;
       text-decoration: none;
     }
 
-    .site-link .logo-img {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 452.24px;
-      height: 71px;
-    }
-
-    .site-link .backtosite-img {
-      position: absolute;
-      left: 12.24px;
-      top: 94px;
-      width: 423px;
-      height: 96px;
-      transition: transform 0.2s ease, filter 0.2s ease;
-    }
-
-    .site-link:hover .backtosite-img {
-      transform: scale(1.06);
-      filter: brightness(1.15) drop-shadow(0 0 12px #a855f7);
-    }
-
-    .whatsapp-link {
-      position: absolute;
-      left: 145px;
-      top: 714px;
-      width: 661px;
-      height: 137px;
-      z-index: 2;
-    }
-
-    .whatsapp-link img {
+    .backtosite-link img {
       width: 100%;
       height: 100%;
       transition: transform 0.2s ease, filter 0.2s ease;
     }
 
-    .whatsapp-link:hover img {
-      transform: scale(1.04);
-      filter: brightness(1.15) drop-shadow(0 0 14px #4ade80);
+    .backtosite-link:hover img {
+      transform: scale(1.06);
+      filter: brightness(1.15) drop-shadow(0 0 12px #a855f7);
     }
   </style>
 </head>
@@ -93,13 +71,10 @@
 
     <img class="bg" src="assets/background.webp" alt="">
 
-    <a class="site-link" href="https://www.moyobet.ke">
-      <img class="logo-img" src="assets/logo.png" alt="MoyoBetKE">
-      <img class="backtosite-img" src="assets/backtosite.png" alt="Back to site">
-    </a>
+    <img class="logo-img" src="assets/logo.png" alt="MoyoBetKE">
 
-    <a class="whatsapp-link" href="https://wa.me/254113773333" target="_blank">
-      <img src="assets/whatsapp.png" alt="+254 113 773333 WhatsApp">
+    <a class="backtosite-link" href="https://www.moyobet.ke">
+      <img src="assets/backtosite.png" alt="Back to site">
     </a>
 
   </div>
