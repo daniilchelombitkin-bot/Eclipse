@@ -20,9 +20,9 @@ html, body {
 
 .banner-title-Aviatrix {
     position: absolute;
-    width: 37%;
-    left: 59%;
-    top: 14%;
+    width: 48%;
+    left: 28%;
+    top: 37%;
     pointer-events: none;
 
     animation: pulse 1.8s ease-in-out infinite;
@@ -34,4 +34,3 @@ html, body {
     50%  { transform: scale(1.06); }
     100% { transform: scale(1); }
 }
-
