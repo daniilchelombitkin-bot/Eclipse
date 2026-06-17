@@ -21,6 +21,17 @@
       overflow: hidden;
     }
 
+    /* Размытая заливка полей по краям тем же фоном (видна в основном в F11) */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: url("background.webp") center / cover no-repeat;
+      filter: blur(24px);
+      transform: scale(1.1);
+    }
+
     .stage {
       position: relative;
       width: 1920px;
@@ -82,10 +93,10 @@
   </main>
 
   <script>
-    // Вписываем макет 1920×1080 в текущее окно браузера, сохраняя пропорции
+    // Вписываем макет 1920×945 в текущее окно браузера, сохраняя пропорции
     const stage = document.querySelector(".stage");
     function fitStage() {
-      const scale = Math.max(window.innerWidth / 1920, window.innerHeight / 945);
+      const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 945);
       stage.style.transform = "scale(" + scale + ")";
     }
     fitStage();
