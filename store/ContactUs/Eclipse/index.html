@@ -24,10 +24,11 @@
     .stage {
       position: relative;
       width: 1920px;
-      height: 1080px;
+      height: 945px;
       flex: none;
       background: url("background.webp") center / cover no-repeat;
-      transform: scale(min(100vw / 1920, 100vh / 1080));
+      transform: scale(1);
+      transform-origin: center;
     }
 
     .stage a,
@@ -50,8 +51,8 @@
     }
 
     .back {
-      left: 94px;
-      top: 780px;
+      left: 95px;
+      top: 717px;
     }
 
     .toast {
@@ -81,6 +82,15 @@
   </main>
 
   <script>
+    // Вписываем макет 1920×1080 в текущее окно браузера, сохраняя пропорции
+    const stage = document.querySelector(".stage");
+    function fitStage() {
+      const scale = Math.max(window.innerWidth / 1920, window.innerHeight / 945);
+      stage.style.transform = "scale(" + scale + ")";
+    }
+    fitStage();
+    window.addEventListener("resize", fitStage);
+
     const phone = document.getElementById("phone");
     const toast = document.getElementById("toast");
     let timer;
