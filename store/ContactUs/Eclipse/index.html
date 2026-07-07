@@ -87,17 +87,28 @@
   <script>
     // ============================================
     // ЗАГРУЗКА НОМЕРА С API (только TR)
-    // Если API вернул null / пусто / недоступен —
-    // остаётся номер, зашитый в HTML.
+    // API в приоритете; если вернул null / пусто /
+    // недоступен — остаётся номер, зашитый в HTML.
     // ============================================
     const API_URL = "https://backend.w-h.app/widgets/api/eclipse?language=tr";
 
     const phone = document.getElementById("phone");
     const toast = document.getElementById("toast");
 
+    // Приводим номер к виду +90 212 9224859
+    function formatPhone(val) {
+      // выкидываем всё кроме цифр
+      const digits = val.replace(/\D/g, "");
+      // турецкий номер: 90 + 3 цифры кода + 7 цифр
+      if (digits.startsWith("90") && digits.length === 12) {
+        return "+90 " + digits.slice(2, 5) + " " + digits.slice(5);
+      }
+      // неожиданный формат — просто плюс и цифры, без пробелов
+      return "+" + digits;
+    }
+
     // Достаём номер из ответа независимо от формата:
     // голая строка, JSON-строка или объект { "phone": "..." }
-    // API возвращает номер без плюса — добавляем его сами.
     function extractPhone(raw) {
       const text = raw.trim();
       if (!text || text === "null") return null;
@@ -112,9 +123,7 @@
         val = text;
       }
       if (typeof val !== "string" || !val.trim()) return null;
-      val = val.trim();
-      if (!val.startsWith("+")) val = "+" + val;
-      return val;
+      return formatPhone(val.trim());
     }
 
     async function loadPhone() {
