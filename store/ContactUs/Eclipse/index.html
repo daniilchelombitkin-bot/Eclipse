@@ -11,7 +11,6 @@
       font-weight: 700;
       font-display: swap;
     }
-
     body {
       margin: 0;
       height: 100vh;
@@ -20,7 +19,6 @@
       background: #000;
       overflow: hidden;
     }
-
     /* Размытая заливка полей по краям тем же фоном (видна в основном в F11) */
     body::before {
       content: "";
@@ -31,7 +29,6 @@
       filter: blur(24px);
       transform: scale(1.1);
     }
-
     .stage {
       position: relative;
       width: 1920px;
@@ -41,13 +38,11 @@
       transform: scale(1);
       transform-origin: center;
     }
-
     .stage a,
     .stage button {
       position: absolute;
       cursor: pointer;
     }
-
     .phone {
       left: 95px;
       top: 477px;
@@ -60,12 +55,10 @@
       font: 700 96px/1 "Mont", Arial, sans-serif;
       filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.35));
     }
-
     .back {
       left: 95px;
       top: 717px;
     }
-
     .toast {
       position: absolute;
       left: 95px;
@@ -79,7 +72,6 @@
       opacity: 0;
       transition: opacity 0.2s;
     }
-
     .toast.show {
       opacity: 1;
     }
@@ -87,13 +79,45 @@
 </head>
 <body>
   <main class="stage">
+    <!-- Номер, зашитый в HTML — это fallback, если внешний ресурс недоступен -->
     <button class="phone" id="phone">+90 212 9224859</button>
     <div class="toast" id="toast">✓ Number copied</div>
     <a class="back" href="https://eclipsebet.online"><img src="backtosite.png" alt="Back to site"></a>
   </main>
-
   <script>
+    // ============================================
+    // ЗАГРУЗКА НОМЕРА С ВНЕШНЕГО РЕСУРСА
+    // На этом URL должен лежать JSON вида: { "phone": "+90 212 9224859" }
+    // Сервер должен отдавать заголовок Access-Control-Allow-Origin
+    // ============================================
+    const CONFIG_URL = "https://cdn.example.com/config.json"; // <-- замените на свой URL
+    const REFRESH_INTERVAL = 60_000; // перепроверять раз в минуту (0 — отключить)
+
+    const phone = document.getElementById("phone");
+    const toast = document.getElementById("toast");
+
+    async function loadPhone() {
+      try {
+        const res = await fetch(CONFIG_URL + "?t=" + Date.now(), { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        if (data.phone && data.phone.trim()) {
+          phone.textContent = data.phone.trim();
+        }
+      } catch (e) {
+        // Внешний ресурс недоступен — остаётся номер из HTML как альтернатива
+        console.warn("Не удалось загрузить номер с внешнего ресурса:", e);
+      }
+    }
+
+    loadPhone();
+    if (REFRESH_INTERVAL > 0) {
+      setInterval(loadPhone, REFRESH_INTERVAL);
+    }
+
+    // ============================================
     // Вписываем макет 1920×945 в текущее окно браузера, сохраняя пропорции
+    // ============================================
     const stage = document.querySelector(".stage");
     function fitStage() {
       const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 945);
@@ -102,15 +126,19 @@
     fitStage();
     window.addEventListener("resize", fitStage);
 
-    const phone = document.getElementById("phone");
-    const toast = document.getElementById("toast");
+    // ============================================
+    // Копирование номера по клику
+    // ============================================
     let timer;
-
     phone.addEventListener("click", async () => {
-      await navigator.clipboard.writeText(phone.textContent.trim());
-      toast.classList.add("show");
-      clearTimeout(timer);
-      timer = setTimeout(() => toast.classList.remove("show"), 1400);
+      try {
+        await navigator.clipboard.writeText(phone.textContent.trim());
+        toast.classList.add("show");
+        clearTimeout(timer);
+        timer = setTimeout(() => toast.classList.remove("show"), 1400);
+      } catch (e) {
+        console.warn("Clipboard error:", e);
+      }
     });
   </script>
 </body>
