@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EclipseBet — Contact Us</title>
+  <title>Slots Eclipse — Contact Us</title>
   <style>
     @font-face {
       font-family: "Mont";
@@ -82,33 +82,34 @@
     <!-- Номер в HTML — fallback, если API вернёт null или будет недоступен -->
     <button class="phone" id="phone">+90 212 9224859</button>
     <div class="toast" id="toast">✓ Number copied</div>
-    <a class="back" href="https://eclipsebet.online"><img src="backtosite.png" alt="Back to site"></a>
+    <a class="back" href="https://slots.eclipse.bet"><img src="backtosite.png" alt="Back to site"></a>
   </main>
   <script>
     // ============================================
-    // ЗАГРУЗКА НОМЕРА С API (только TR)
-    // API в приоритете; если вернул null / пусто /
-    // недоступен — остаётся номер, зашитый в HTML.
+    // ЗАГРУЗКА НОМЕРА ИЗ bc-admin (slots-api).
+    // В отличие от eclipse-лендинга (там w-h.app), slots-номером
+    // управляют в bc-admin → «Звоночек» → «Номер для slots.eclipse.bet».
+    // API в приоритете; если вернул null/пусто/недоступен — остаётся
+    // номер, зашитый в HTML (fallback).
     // ============================================
-    const API_URL = "https://backend.w-h.app/widgets/api/eclipse?language=tr";
+    const API_URL = "https://slots-api.toolseclipse.com/data/widget-config?key=c27c2063f23f63b818f62f4408e3c26ab3f6762c69ef7fbf";
 
     const phone = document.getElementById("phone");
     const toast = document.getElementById("toast");
 
     // Приводим номер к виду +90 212 9224859
     function formatPhone(val) {
-      // выкидываем всё кроме цифр
-      const digits = val.replace(/\D/g, "");
+      const digits = String(val).replace(/\D/g, "");
       // турецкий номер: 90 + 3 цифры кода + 7 цифр
       if (digits.startsWith("90") && digits.length === 12) {
         return "+90 " + digits.slice(2, 5) + " " + digits.slice(5);
       }
-      // неожиданный формат — просто плюс и цифры, без пробелов
+      // неожиданный формат — просто плюс и цифры
       return "+" + digits;
     }
 
-    // Достаём номер из ответа независимо от формата:
-    // голая строка, JSON-строка или объект { "phone": "..." }
+    // Достаём номер из ответа slots-api: { "callButton": { "phone": "..." } }.
+    // На всякий случай понимаем и голую строку / объект с phone|number|value.
     function extractPhone(raw) {
       const text = raw.trim();
       if (!text || text === "null") return null;
@@ -117,10 +118,12 @@
         const data = JSON.parse(text);
         if (data === null) return null;
         if (typeof data === "string") val = data;
-        else if (typeof data === "object") val = data.phone ?? data.number ?? data.value;
+        else if (typeof data === "object") {
+          val = (data.callButton && data.callButton.phone)
+            || data.phone || data.number || data.value;
+        }
       } catch {
-        // не JSON — значит, просто текст с номером
-        val = text;
+        val = text; // не JSON — просто номер строкой
       }
       if (typeof val !== "string" || !val.trim()) return null;
       return formatPhone(val.trim());
