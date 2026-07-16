@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MoyoBetKE - Contact Us</title>
   <style>
+    @font-face {
+      font-family: 'Freich';
+      src: url('assets/Freich.otf') format('opentype');
+      font-display: swap;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -37,17 +43,73 @@
 
     .logo-img {
       position: absolute;
-      left: 608.01px;
-      top: 64px;
+      left: 452px;
+      top: 52px;
       width: 452.24px;
       height: 71px;
       z-index: 2;
     }
 
+    .phone-link {
+      position: absolute;
+      /* centered under CONTACT US (heading spans x235-845) */
+      left: 148px;
+      top: 441px;
+      z-index: 2;
+      text-decoration: none;
+    }
+
+    .phone-number {
+      display: block;
+      font-family: 'Freich', sans-serif;
+      font-weight: normal;
+      font-size: 120px;
+      line-height: 1;
+      white-space: nowrap;
+      background:
+        linear-gradient(180deg,
+          transparent 0 calc(0.875em - 3px),
+          #528F3C calc(0.875em - 3px) 0.875em,
+          transparent 0.875em),
+        linear-gradient(90deg, #8CD53C, #FFE933);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(-4px 6px 6.3px rgba(0, 0, 0, 0.54));
+      transition: transform 0.2s ease;
+    }
+
+    .phone-link:hover .phone-number {
+      transform: scale(1.04);
+    }
+
+    .copied-tip {
+      position: absolute;
+      left: 50%;
+      top: -40px;
+      transform: translateX(-50%);
+      font-family: 'Freich', sans-serif;
+      font-size: 30px;
+      color: #FFE933;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 8px 18px;
+      border-radius: 12px;
+      white-space: nowrap;
+      pointer-events: none;
+      animation: tipfade 1.2s ease forwards;
+    }
+
+    @keyframes tipfade {
+      0% { opacity: 0; }
+      15% { opacity: 1; }
+      70% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
     .backtosite-link {
       position: absolute;
-      left: 197px;
-      top: 843px;
+      left: 345px;
+      top: 845px;
       width: 423px;
       height: 96px;
       z-index: 2;
@@ -69,9 +131,13 @@
 <body>
   <div class="scene" id="scene">
 
-    <img class="bg" src="assets/background.webp" alt="">
+    <img class="bg" src="assets/backgroundmass.webp" alt="">
 
     <img class="logo-img" src="assets/logo.png" alt="MoyoBetKE">
+
+    <a class="phone-link" href="tel:+254113777000">
+      <span class="phone-number">+254 113 777 000</span>
+    </a>
 
     <a class="backtosite-link" href="https://www.moyobet.ke">
       <img src="assets/backtosite.png" alt="Back to site">
@@ -89,6 +155,40 @@
 
     scaleScene();
     window.addEventListener('resize', scaleScene);
+
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      ta.remove();
+    }
+
+    function showCopied(link) {
+      const old = link.querySelector('.copied-tip');
+      if (old) old.remove();
+      const tip = document.createElement('span');
+      tip.className = 'copied-tip';
+      tip.textContent = 'COPIED!';
+      link.appendChild(tip);
+      setTimeout(() => tip.remove(), 1200);
+    }
+
+    document.querySelectorAll('.phone-link, .call-link, .whatsapp-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const text = link.querySelector('.phone-number').textContent.trim();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+        } else {
+          fallbackCopy(text);
+        }
+        showCopied(link);
+      });
+    });
   </script>
 </body>
 </html>
