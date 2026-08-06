@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Slots Eclipse — Contact Us</title>
+  <!-- Preload шрифта, чтобы номер не перерисовывался с Arial на Mont -->
+  <link rel="preload" href="fonts/Mont-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <style>
     @font-face {
       font-family: "Mont";
@@ -91,11 +93,21 @@
     // управляют в bc-admin → «Звоночек» → «Номер для slots.eclipse.bet».
     // API в приоритете; если вернул null/пусто/недоступен — остаётся
     // номер, зашитый в HTML (fallback).
+    // Последний номер из API кэшируется в localStorage и показывается
+    // сразу при загрузке — без мерцания fallback → API-номер.
     // ============================================
     const API_URL = "https://slots-api.toolseclipse.com/data/widget-config?key=c27c2063f23f63b818f62f4408e3c26ab3f6762c69ef7fbf";
+    const STORAGE_KEY = "slots-phone";
 
     const phone = document.getElementById("phone");
     const toast = document.getElementById("toast");
+    const fallback = phone.textContent; // номер, зашитый в HTML
+
+    // Номер с прошлого визита — сразу, не дожидаясь ответа API
+    try {
+      const cached = localStorage.getItem(STORAGE_KEY);
+      if (cached) phone.textContent = cached;
+    } catch {}
 
     // Приводим номер к виду +90 212 9224859
     function formatPhone(val) {
@@ -134,8 +146,14 @@
         const res = await fetch(API_URL, { cache: "no-store" });
         if (!res.ok) return;
         const number = extractPhone(await res.text());
-        if (number) phone.textContent = number;
-        // number === null → остаётся номер из HTML
+        if (number) {
+          phone.textContent = number;
+          localStorage.setItem(STORAGE_KEY, number);
+        } else {
+          // API явно вернул null → показываем номер из HTML, кэш устарел
+          phone.textContent = fallback;
+          localStorage.removeItem(STORAGE_KEY);
+        }
       } catch (e) {
         console.warn("Ошибка запроса к API:", e);
       }
