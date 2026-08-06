@@ -54,15 +54,6 @@
       -webkit-text-fill-color: transparent;
       font: 700 96px/1 "Mont", Arial, sans-serif;
       filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.35));
-      /* Номер скрыт, пока не отработал запрос к API: иначе при F5
-         на мгновение виден fallback, который тут же подменяется актуальным.
-         visibility (а не display) — элемент остаётся в потоке, ничего не дёргается. */
-      visibility: hidden;
-      pointer-events: none;
-    }
-    .phone.ready {
-      visibility: visible;
-      pointer-events: auto;
     }
     .back {
       left: 95px;
@@ -85,15 +76,6 @@
       opacity: 1;
     }
   </style>
-  <noscript>
-    <!-- Без JS запроса не будет — показываем fallback сразу -->
-    <style>
-      .phone {
-        visibility: visible;
-        pointer-events: auto;
-      }
-    </style>
-  </noscript>
 </head>
 <body>
   <main class="stage">
@@ -109,14 +91,8 @@
     // управляют в bc-admin → «Звоночек» → «Номер для slots.eclipse.bet».
     // API в приоритете; если вернул null/пусто/недоступен — остаётся
     // номер, зашитый в HTML (fallback).
-    //
-    // Номер показывается только после того, как запрос завершился
-    // (успехом, ошибкой или таймаутом) — см. .phone / .phone.ready в CSS.
     // ============================================
     const API_URL = "https://slots-api.toolseclipse.com/data/widget-config?key=c27c2063f23f63b818f62f4408e3c26ab3f6762c69ef7fbf";
-
-    // Если API не ответил за это время — показываем fallback и не ждём дальше
-    const API_TIMEOUT = 3000;
 
     const phone = document.getElementById("phone");
     const toast = document.getElementById("toast");
@@ -154,24 +130,14 @@
     }
 
     async function loadPhone() {
-      let timeout;
       try {
-        // AbortController обязателен: без него зависший (а не упавший)
-        // запрос держал бы номер скрытым десятки секунд
-        const ctrl = new AbortController();
-        timeout = setTimeout(() => ctrl.abort(), API_TIMEOUT);
-
-        const res = await fetch(API_URL, { cache: "no-store", signal: ctrl.signal });
-        if (res.ok) {
-          const number = extractPhone(await res.text());
-          if (number) phone.textContent = number;
-          // number === null → остаётся номер из HTML
-        }
+        const res = await fetch(API_URL, { cache: "no-store" });
+        if (!res.ok) return;
+        const number = extractPhone(await res.text());
+        if (number) phone.textContent = number;
+        // number === null → остаётся номер из HTML
       } catch (e) {
         console.warn("Ошибка запроса к API:", e);
-      } finally {
-        clearTimeout(timeout);
-        phone.classList.add("ready"); // показываем в любом исходе
       }
     }
 
